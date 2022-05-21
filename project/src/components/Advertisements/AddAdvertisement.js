@@ -2,11 +2,6 @@ import React, {useState} from 'react'
 import {Avatar, Button , TextField, Grid, Typography, Box, Container} from '@mui/material/'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ButtonAppBar from '../Registration/AppBar';
-// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-// import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-
-
 
 function AddAdvertisement({addAdvertisement}) {
   const theme = createTheme();
@@ -17,11 +12,15 @@ function AddAdvertisement({addAdvertisement}) {
   const [price,setPrice] = useState('');
   const [date,setDate] = useState('');
 
+  function submitForm(event){
+    event.preventDefault();
+      addAdvertisement({firstName, lastName, category, service, price,date});
+  }
   return (
     <div>
       <ThemeProvider theme={theme}>
         <ButtonAppBar />
-        <form className="form-container" onSubmit={addAdvertisement}>
+        <form className="form-container" onSubmit={submitForm}>
           <Box
             sx={{
               marginTop: 8,
