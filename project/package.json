@@ -17,6 +17,7 @@
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "express": "^4.18.1",
+    "formik": "^2.2.9",
     "material-ui-icons": "^1.0.0-beta.36",
     "mongoose": "^6.3.2",
     "react": "^18.0.0",

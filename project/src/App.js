@@ -1,20 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import HomePage from './components/HomePage/HomePage';
 import Registration from './components/Registration/Registration';
 import Login from './components/Login/Login'
-import {register, login, createAd} from "./components/Service/API";
+import {register, login, createPost, findAllPosts} from "./components/Service/API";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import AddAdvertisement from './components/Advertisements/AddAdvertisement';
 import Categories from './components/Categories/Categories';
-import Advertisements from './components/Advertisements/Adverisements'
+import axios from 'axios';
+import AddPost from './components/Advertisements/AddPost';
+import Posts from './components/Advertisements/Posts';
 
 
 function App() {
   const [users, setUsers] = useState([]);
-  const [advertisement, setAdvertisement] = useState([]);
-
+  const [posts, setPosts] = useState([]);
   function registerUser(user){
     register(user)
     .then(res =>{
@@ -27,11 +27,18 @@ async function loginUser(user){
   .then(res =>{
     console.log(res)})
 }
-const addAdvertisement = (ad) => {
-  createAd(ad).then(newAdd => {
-    setAdvertisement(old => [...old, newAdd]);
-  })
+
+function addPost(post){
+    createPost(post).then(created => {
+      setPosts(oldPosts => [...oldPosts, created]);
+    })
 }
+useEffect(() => {
+  findAllPosts()
+      .then(posts => setPosts(posts));
+  // return () => { console.log("Cleaning up ...")};
+}, []);
+
   return (
     <div className="App">
     <Router>
@@ -40,8 +47,8 @@ const addAdvertisement = (ad) => {
       <Route path='/registration' element={<Registration onRegister={registerUser}/>}/>
       <Route path='/login' element={<Login onLogin={loginUser}/>}/>
       <Route path='/categories' element={<Categories/>}/>
-      <Route path='/addvertisement/new' element={<AddAdvertisement addAdvertisement={addAdvertisement}/>}/>
-
+      <Route path='/addvertisement/new' element={<AddPost onAddPost={addPost}/>}/>
+      <Route path='/addvertisements' element={<Posts posts={posts}/>}/>
     </Routes>
     </Router>
     </div>

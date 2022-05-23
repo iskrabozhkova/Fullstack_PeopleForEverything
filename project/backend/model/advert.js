@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const AdvertSchema = new mongoose.Schema({
+    id: {type: Number},
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
     category: {type: String, required: true},
