@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import {Avatar, Button , TextField, MenuItem, Select, FormControl, InputLabel, Link, Grid, Typography, Box, Container} from '@mui/material/'
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider,styled } from '@mui/material/styles';
 import './Registration.css'
-import ButtonAppBar from './AppBar';
+import ButtonAppBar from '../Menu/AppBar';
 
 export default function Registration({onRegister}) {
   const theme = createTheme();
@@ -22,7 +22,7 @@ export default function Registration({onRegister}) {
     <div>
       <ThemeProvider theme={theme}>
       <ButtonAppBar/>
-        <form class="form-container" onSubmit={submitRegistration}>
+        <form className="form-container" onSubmit={submitRegistration}>
           <Box
             sx={{
               marginTop: 8,

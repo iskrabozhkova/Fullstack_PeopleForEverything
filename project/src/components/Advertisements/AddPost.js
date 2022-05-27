@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, {useState} from 'react'
 import {Avatar, Button , TextField, Grid, Typography, Box, Container} from '@mui/material/'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import ButtonAppBar from '../Registration/AppBar';
+import ButtonAppBar from '../Menu/AppBar'
 
 function AddPost({onAddPost}) {
     const [firstName,setFirstName] = useState("");

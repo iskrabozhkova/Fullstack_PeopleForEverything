@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {Avatar, Button , TextField, MenuItem, Select, FormControl, InputLabel, Link, Grid, Typography, Box, Container} from '@mui/material/'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './Login.css'
-import ButtonAppBar from '../Registration/AppBar';
+import ButtonAppBar from '../Menu/AppBar';
 
 export default function Login({onLogin}) {
   const theme = createTheme();

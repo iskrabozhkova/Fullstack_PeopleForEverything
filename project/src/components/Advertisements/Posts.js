@@ -1,13 +1,22 @@
-import React from 'react'
+import {React, useState} from 'react'
 import PropTypes from 'prop-types'
 import PostCard from './PostCard'
+import Categories from '../Categories/Categories';
 
 function Posts({posts}) {
-    console.log(posts)
+  const [filter, setFilter] = useState("");
+
+  function changeFilter(filter){
+    setFilter(filter);
+  }
+
   return (
     <div>
-         {Object.keys(posts).map((key, index) => {
-             console.log(posts[key]);
+      <Categories onFilterCategories={changeFilter}></Categories>
+         {Object.keys(posts)
+          .filter((key, index) => filter === posts[key].category)
+          .map((key, index) => {
+            // console.log(posts[key]);
              return <PostCard post={posts[key]} key={index}></PostCard>
          })
              // <PostCard post={post} key={post}></PostCard>

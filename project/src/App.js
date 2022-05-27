@@ -15,6 +15,7 @@ import Posts from './components/Advertisements/Posts';
 function App() {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
+
   function registerUser(user){
     register(user)
     .then(res =>{

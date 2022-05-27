@@ -1,27 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import CategoryCard from './CategoryCard'
+import Button from '@mui/material/Button';
+import { Select, MenuItem} from '@mui/material';
 
-function Categories() {
-   // const categories = ["Home", "Car"];
-    const categories = [{
-      id: 1,
-      name: "Home"
-    },
-  {
-    id: 2, 
-    name: "Car"
-  }]
+function Categories({onFilterCategories}) {
+  function handleChange(e){
+    onFilterCategories(e.target.value);
+  }
   return (
     <div>
-    {
-        categories.map(category => {
-            return <CategoryCard key={category.id} category={category.name}></CategoryCard>
-    })}
+    <Select
+      labelId="demo-simple-select-label"
+      id="demo-simple-select"
+      value="car"
+      label="Choose category"
+      onChange={handleChange}
+    >
+      <MenuItem value="home">Home</MenuItem>
+      <MenuItem value="car">Car</MenuItem>
+    </Select>
     </div>
   )
 }
 
-
+Categories.propTypes = {}
 
 export default Categories
