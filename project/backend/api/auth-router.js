@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('../model/user');
+const {createToken, verify} = require('./jwt');
+const cookieParser = require('cookie-parser');
 
 router.post('/register', async (req,res) => {
     const user = req.body;
@@ -18,7 +20,8 @@ router.post('/register', async (req,res) => {
            email: user.email,
            role: user.role
        })
-    await newUser.save()
+    await newUser.save();
+
     res.status(201).send({message: "User created"})
 })
 
@@ -30,7 +33,11 @@ router.post('/login', async (req,res) => {
     if(!userData){
         return res.json({status: 'error', error: 'Invalid username/password'})
     }else{
-        return res.json({status: 'ok'})
+        createToken(userData).then(token => {
+            res.cookie('auth-token', token, {httpOnly: true});
+            res.status(201).send(token);
+            });
+        //return res.json({status: 'ok'})
     }
     // if(await bcrypt.compare(data.password, userData.password)){
     //     return res.json({status: 'ok'})

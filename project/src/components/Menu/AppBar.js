@@ -32,6 +32,7 @@ const usedStyles = makeStyles({
 });
 
 const navLinks = [
+  { title: "Home", path: "/" },
   { title: "Registration", path: "/registration" },
   { title: "Login", path: "/login" },
   { title: "Add Advertisement", path: "/addvertisement/new" },
@@ -42,7 +43,7 @@ const ButtonAppBar = () => {
   const classes = usedStyles();
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="static" color="primary">
         <Toolbar>
           <Container maxWidth="lg" className={classes.navbarDisplayFlex}>
             <List

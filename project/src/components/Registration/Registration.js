@@ -3,6 +3,7 @@ import {Avatar, Button , TextField, MenuItem, Select, FormControl, InputLabel, L
 import { createTheme, ThemeProvider,styled } from '@mui/material/styles';
 import './Registration.css'
 import ButtonAppBar from '../Menu/AppBar';
+import { LoadingButton } from '@mui/lab';
 
 export default function Registration({onRegister}) {
   const theme = createTheme();
@@ -22,6 +23,7 @@ export default function Registration({onRegister}) {
     <div>
       <ThemeProvider theme={theme}>
       <ButtonAppBar/>
+  
         <form className="form-container" onSubmit={submitRegistration}>
           <Box
             sx={{

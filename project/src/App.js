@@ -26,7 +26,9 @@ function App() {
 async function loginUser(user){
   login(user)
   .then(res =>{
-    console.log(res)})
+    const token = res.data;
+    localStorage.setItem('auth-token', token);
+    })
 }
 
 function addPost(post){
