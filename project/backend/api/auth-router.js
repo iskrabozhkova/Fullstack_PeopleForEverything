@@ -21,13 +21,13 @@ router.post('/register', async (req,res) => {
            role: user.role
        })
     await newUser.save();
-
     res.status(201).send({message: "User created"})
 })
 
 router.post('/login', async (req,res) => {
     //res.status(201).send({message: "connect"})
     const user = req.body;
+    const {email} = req.body;
     //console.log(user);
     const userData = await User.findOne({email: user.email});
     if(!userData){
@@ -35,7 +35,7 @@ router.post('/login', async (req,res) => {
     }else{
         createToken(userData).then(token => {
             res.cookie('auth-token', token, {httpOnly: true});
-            res.status(201).send(token);
+            res.status(201).send({ email, token});
             });
         //return res.json({status: 'ok'})
     }

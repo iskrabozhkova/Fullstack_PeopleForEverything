@@ -1,7 +1,16 @@
 .bg-image{
-    background-image: url("../../../../2.png");
+    background-image: url("../../../public/images/home.png");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+#header{
+    color: #1D8395;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 50px;
+}
+.button{
+    background-color: red;
 }

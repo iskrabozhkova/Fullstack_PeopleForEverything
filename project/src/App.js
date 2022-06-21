@@ -9,27 +9,53 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Categories from './components/Categories/Categories';
 import axios from 'axios';
 import AddPost from './components/Advertisements/AddPost';
+import Profile from './components/Profile/Profile';
 import Posts from './components/Advertisements/Posts';
+import { Navigate } from 'react-router-dom'
 
 
 function App() {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [isRegistered, setIsRegistered] = useState("");
+  const [userData, setUserData] = useState("");
+  // const navigate = useNavigate()
 
   function registerUser(user){
-    register(user)
-    .then(res =>{
-     const created = res.config.data;
-     setUsers(oldUsers => [...oldUsers,created])
+    return axios({
+      method: "POST",
+      data: user,
+      withCredentials: true,
+      url: "http://localhost:8080/api/auth/register"
     })
+  .then(res => {
+      console.log(res);
+      console.log(res.config.data);
+      const created = res.config.data;
+      setUsers(oldUsers => [...oldUsers,created])
+       if(res.status === 201){
+       window.location.replace("http://localhost:3000/login")
+    }
+  })
+
 }
 async function loginUser(user){
-  login(user)
-  .then(res =>{
-    const token = res.data;
-    localStorage.setItem('auth-token', token);
-    })
+  // login(user)
+  return axios({
+    method: "POST",
+    data: user,
+    withCredentials: true,
+    url: "http://localhost:8080/api/auth/login"
+})
+.then(res =>{
+  const token = res.data.token;
+  localStorage.setItem('auth-token', token);
+  setUserData(res.data.email);
+  window.history.pushState(user, '', "http://localhost:3000/profile");
+  window.location.replace("http://localhost:3000/profile")
+  })
 }
+
 
 function addPost(post){
     createPost(post).then(created => {
@@ -52,6 +78,7 @@ useEffect(() => {
       <Route path='/categories' element={<Categories/>}/>
       <Route path='/addvertisement/new' element={<AddPost onAddPost={addPost}/>}/>
       <Route path='/addvertisements' element={<Posts posts={posts}/>}/>
+      <Route path='/profile' element={<Profile/>}/>
     </Routes>
     </Router>
     </div>

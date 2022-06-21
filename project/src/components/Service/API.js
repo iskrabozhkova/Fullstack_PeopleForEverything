@@ -1,23 +1,29 @@
 import axios from "axios"
 
-export const register = (user) => {
-    return axios({
-        method: "POST",
-        data: user,
-        withCredentials: true,
-        url: "http://localhost:8080/api/auth/register"
-    })
-}
+// export const register = (user) => {
+//     return axios({
+//         method: "POST",
+//         data: user,
+//         withCredentials: true,
+//         url: "http://localhost:8080/api/auth/register"
+//     })
+//     .then(res => {
+//         console.log(res);
+//         console.log(res.config.data);
+//        // console.log(res.config);
+//     })
+// }
 
 
-export const login = (user) => {
-    return axios({
-        method: "POST",
-        data: user,
-        withCredentials: true,
-        url: "http://localhost:8080/api/auth/login"
-    })
-}
+// export const login = (user) => {
+//     return axios({
+//         method: "POST",
+//         data: user,
+//         withCredentials: true,
+//         url: "http://localhost:8080/api/auth/login"
+//     })
+//     .then(res => console.log(res))
+// }
 // export const addAd = (add) => {
 //     return axios({
 //         method: "POST",

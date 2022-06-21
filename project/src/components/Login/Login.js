@@ -3,6 +3,7 @@ import {Avatar, Button , TextField, MenuItem, Select, FormControl, InputLabel, L
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './Login.css'
 import ButtonAppBar from '../Menu/AppBar';
+import ButtonAppBarNotRegistered from '../Menu/AppBarNotRegistered';
 
 export default function Login({onLogin}) {
   const theme = createTheme();
@@ -18,7 +19,7 @@ export default function Login({onLogin}) {
   return (
     <div>
       <ThemeProvider theme={theme}>
-      <ButtonAppBar/>
+      <ButtonAppBarNotRegistered/>
         <form className="form-container" onSubmit={submitLogin}>
           <Box
             sx={{
