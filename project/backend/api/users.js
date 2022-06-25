@@ -4,7 +4,7 @@ const User = require('../model/user');
 
 router.get('/users/getUser', (req,res) => {
     const {data} = req.body;
-    const user = await User.findOne({email: data});
+    const user = User.findOne({email: data});
     res.send(user);
 })
 

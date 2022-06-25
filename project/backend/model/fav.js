@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const AdvertSchema = new mongoose.Schema({
-    id: {type: mongoose.Types.ObjectId},
+const FavSchema = new mongoose.Schema({
+    id: {type: Number},
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
     category: {type: String, required: true},
@@ -11,4 +11,4 @@ const AdvertSchema = new mongoose.Schema({
 },
 { collation: { locale: 'en_US', strength: 1 }} )
 
-module.exports = mongoose.model('Adverts', AdvertSchema);
+module.exports = mongoose.model('Favourites', FavSchema);

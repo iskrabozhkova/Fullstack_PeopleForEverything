@@ -9,14 +9,17 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Categories from './components/Categories/Categories';
 import axios from 'axios';
 import AddPost from './components/Advertisements/AddPost';
+import DetailedAd from './components/Advertisements/DetailedAd';
 import Profile from './components/Profile/Profile';
 import Posts from './components/Advertisements/Posts';
+import Favourites from './components/Advertisements/Favourites';
 import { Navigate } from 'react-router-dom'
 
 
 function App() {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
+  // const [favs, setFavs] = useState([]);
   const [isRegistered, setIsRegistered] = useState("");
   const [userData, setUserData] = useState("");
   // const navigate = useNavigate()
@@ -61,7 +64,7 @@ function addPost(post){
     createPost(post).then(created => {
       setPosts(oldPosts => [...oldPosts, created]);
     })
-}
+  }
 useEffect(() => {
   findAllPosts()
       .then(posts => setPosts(posts));
@@ -78,7 +81,9 @@ useEffect(() => {
       <Route path='/categories' element={<Categories/>}/>
       <Route path='/addvertisement/new' element={<AddPost onAddPost={addPost}/>}/>
       <Route path='/addvertisements' element={<Posts posts={posts}/>}/>
+      <Route path='/addvertisements/:id' element={<DetailedAd/>}/>
       <Route path='/profile' element={<Profile/>}/>
+      <Route path='/favs' element={<Favourites/>}/>
     </Routes>
     </Router>
     </div>

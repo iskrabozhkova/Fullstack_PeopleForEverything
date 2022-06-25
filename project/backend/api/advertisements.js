@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Advert = require('../model/advert');
+const mongoose = require('mongoose')
 
 router.post('/', async (req,res) => {
     const advert = req.body;
@@ -17,6 +18,14 @@ router.post('/', async (req,res) => {
  res.send(advert);
     //res.status(201).send({message: "Advert created"})
   
+ })
+//  router.get('/:id', (req, res) => {
+//     res.send("Success");
+//  })
+ router.get('/:id', (req, res) => {
+    const id = req.params['id'];
+    Advert.findOne({ _id: mongoose.Types.ObjectId(Number(id)) }).then(res => console.log(res))
+       
  })
  router.get('/', async(req, res) => {
         // const posts = await Advert.find().toArray();
