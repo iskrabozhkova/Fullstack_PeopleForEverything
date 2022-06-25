@@ -19,7 +19,6 @@ function submitPost(event){
 
   return (
     <div>
-    
     <ThemeProvider theme={theme}>
     <ButtonAppBar/>
       <form className="form-container" onSubmit={submitPost}>

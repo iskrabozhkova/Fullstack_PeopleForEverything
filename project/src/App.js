@@ -62,7 +62,7 @@ async function loginUser(user){
 
 function addPost(post){
     createPost(post).then(created => {
-      setPosts(oldPosts => [...oldPosts, created]);
+      setPosts([...posts, created]);
     })
   }
 useEffect(() => {
