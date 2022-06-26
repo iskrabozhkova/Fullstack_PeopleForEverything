@@ -26,7 +26,7 @@ function Posts({posts}) {
     <div>
       <Categories onFilterCategories={changeFilter}></Categories>
       <Grid container spacing={12} >
-      <Grid item xs={12} m={25}>
+      <Grid item xs={10} ml={55} mt={30}>
       
       <Grid container spacing={12} columnGap={10} rowGap={5}>
          {Object.keys(posts)

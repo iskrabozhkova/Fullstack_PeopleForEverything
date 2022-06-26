@@ -7,7 +7,6 @@ import FavCard from './FavouriteCard';
 function Favourites() {
     const [favs, setFavs] = useState([]);
     useEffect(() => {
-        console.log('i fire once');
         axios({
              method: "GET",
              withCredentials: true,

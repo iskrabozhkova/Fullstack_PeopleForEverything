@@ -54,8 +54,9 @@ async function loginUser(user){
   const token = res.data.token;
   localStorage.setItem('auth-token', token);
   setUserData(res.data.email);
+  //window.history.push("/profile")
   window.history.pushState(user, '', "http://localhost:3000/profile");
-  window.location.replace("http://localhost:3000/profile")
+  window.location.replace(`http://localhost:3000/profile/:${res.data.userData._id}`)
   })
 }
 
@@ -82,7 +83,7 @@ useEffect(() => {
       <Route path='/addvertisement/new' element={<AddPost onAddPost={addPost}/>}/>
       <Route path='/addvertisements' element={<Posts posts={posts}/>}/>
       <Route path='/addvertisements/:id' element={<DetailedAd/>}/>
-      <Route path='/profile' element={<Profile/>}/>
+      <Route path='/profile/:id' element={<Profile/>}/>
       <Route path='/favs' element={<Favourites/>}/>
     </Routes>
     </Router>

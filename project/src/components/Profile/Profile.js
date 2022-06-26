@@ -1,27 +1,29 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import { useParams } from "react-router-dom";
 import PropTypes from 'prop-types'
-
 import axios from "axios"
 
 
-
 function Profile() {
- const getUser = () => {
-     return axios({
-         method: "POST",
-         data: window.history.state.email,
-         withCredentials: true,
-         url: "http://localhost:8080/api/users/getUser"
-     })
-     .then(res => {
-         console.log(res);
-        // console.log(res.config);
-     })
- }
+    const { id } = useParams();
+    const [userData, setUserData] = useState([]);
+
+    useEffect(() => {
+      axios({
+           method: "GET",
+           withCredentials: true,
+           url: `http://localhost:8080/api/users/${id}`
+      }).then(res => {
+         setUserData(old => [...old, res.data])
+   
+      });
+     },[])
   return (
     <div>
-        <h1>{window.history.state.email}</h1>
-        <h1>{window.history.state.role}</h1>
+      <h1>Profile</h1>
+      <h1>{userData[0].firstName}</h1>
+      <h1>{userData[0].lastName}</h1>
+      <h1>{userData[0].email}</h1>
     </div>
   )
 }

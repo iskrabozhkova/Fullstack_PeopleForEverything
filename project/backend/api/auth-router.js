@@ -35,7 +35,7 @@ router.post('/login', async (req,res) => {
     }else{
         createToken(userData).then(token => {
             res.cookie('auth-token', token, {httpOnly: true});
-            res.status(201).send({ email, token});
+            res.status(201).send({ email, token, userData});
             });
         //return res.json({status: 'ok'})
     }

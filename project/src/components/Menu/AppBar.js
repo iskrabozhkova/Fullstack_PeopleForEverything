@@ -17,6 +17,7 @@ const usedStyles = makeStyles({
   navbarDisplayFlex: {
     display: "flex",
     justifyContent: "space-between",
+    padding: "0px",
   },
   navDisplayFlex: {
     display: "flex",
@@ -35,6 +36,10 @@ const usedStyles = makeStyles({
     position: "absolute",
     width: "200px",
     height: "100%"
+  },
+  item: {
+    height: "70px",
+    
   }
 });
 
@@ -59,7 +64,7 @@ const ButtonAppBar = () => {
               className={classes.navDisplayFlex}
             >
               {navLinks.map(({ title, path }) => (
-                <ListItem button key={title} component={Link} to={path}>
+                <ListItem button key={title} component={Link} to={path} className={classes.item}>
                   <ListItemText className={classes.linkText} primary={title} />
                 </ListItem>
               ))}
