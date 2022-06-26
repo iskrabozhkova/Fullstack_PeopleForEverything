@@ -1,0 +1,20 @@
+
+.container{
+    background:  rgba(255,255,255,0.3);
+    padding: 3em;
+    height: 50%;
+    border-radius: 20px;
+    border-left: 1px solid  rgba(255,255,255,0.3);
+    border-top: 1px solid  rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+    text-align: center;
+
+    margin-left: 20% !important;
+    margin-top: 5% ;
+}
+body {
+    background: linear-gradient(45deg, #8ebed6, #bbc1e1);
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+  }

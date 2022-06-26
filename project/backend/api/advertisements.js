@@ -12,7 +12,10 @@ router.post('/', async (req,res) => {
         category: advert.category,
         service: advert.service,
         price: advert.price,
-        date: advert.date
+        longDescription: advert.longDescription,
+        date: advert.date,
+        date1: advert.date1,
+        date2: advert.date2
     })
  await newAdvert.save()
  res.send(advert);
@@ -29,6 +32,7 @@ router.post('/', async (req,res) => {
     console.log(id);
        Advert.findOne({ '_id': id }, function(err, add){
            res.send(add);
+           console.log(add);
        })
  })
  router.get('/', async(req, res) => {

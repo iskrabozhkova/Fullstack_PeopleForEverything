@@ -6,8 +6,11 @@ const AdvertSchema = new mongoose.Schema({
     lastName: {type: String, required: true},
     category: {type: String, required: true},
     service: {type: String, required: true},
+    longDescription: {type: String, required: true},
     price: {type: Number},
-    date: {date: Date}
+    date: {type: String},
+    date1: {type: String},
+    date2: {type: String},
 },
 { collation: { locale: 'en_US', strength: 1 }} )
 

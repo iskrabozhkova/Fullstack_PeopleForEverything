@@ -44,7 +44,7 @@ const getDetails = (post) =>{
           Short description: {post.service}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        {post.date}
+      
       </Typography>
       </CardContent>
       <CardActions>

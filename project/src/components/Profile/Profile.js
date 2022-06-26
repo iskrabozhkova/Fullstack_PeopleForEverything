@@ -1,9 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, createContext} from 'react'
 import { useParams } from "react-router-dom";
 import PropTypes from 'prop-types'
 import axios from "axios"
+import BasicModal from '../Advertisements/BasicModal';
 
 
+export const UserContext = createContext({});
 function Profile() {
     const { id } = useParams();
     const [userData, setUserData] = useState([]);

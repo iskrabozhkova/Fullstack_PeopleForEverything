@@ -10,11 +10,15 @@ function AddPost({onAddPost}) {
     const [category,setCategory] = useState('');
     const [service,setService] = useState('');
     const [price,setPrice] = useState('');
-    const [date,setDate] = useState('');
+    const [date,setDate] = useState([]);
+    const [date1,setDate1] = useState([]);
+    const [date2,setDate2] = useState([]);
+    const [longDescription,setLongDescription] = useState('');
+
     const theme = createTheme();
 function submitPost(event){
     event.preventDefault();
-    onAddPost({firstName, lastName, category, service, price, date});
+    onAddPost({firstName, lastName, category, service, longDescription, price, date, date1, date2});
 }
 
   return (
@@ -31,7 +35,7 @@ function submitPost(event){
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}/>
-          <Typography component="h1" variant="h5">Register</Typography>
+          <Typography component="h1" variant="h5">Add advertisement</Typography>
           <Box  sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
@@ -84,8 +88,20 @@ function submitPost(event){
               <TextField
                 required
                 fullWidth
+                name="longDescription"
+                label="long description"
+                type="text"
+                id="long-description"
+                value={longDescription}
+                onChange={e => setLongDescription(e.target.value)}
+              />
+            </Grid>
+              <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
                 name="price"
-                label="price"
+                label="price(lv)"
                 type="text"
                 id="price"
                 value={price}
@@ -95,15 +111,37 @@ function submitPost(event){
             <Grid item xs={12} sm={6}>
             <TextField
             name="someDate"
-            label="Some Date"
+            label="Choose Date"
             InputLabelProps={{ shrink: true, required: true }}
-            type="date"
+            type="datetime-local"
            defaultValue={date}
             //value={formik.values.date}
             onChange={e => setDate(e.target.value)}
           />
-          </Grid>          
+          </Grid>        
+          <Grid item xs={12} sm={6}>
+          <TextField
+          name="someDate"
+          label="Choose Date"
+          InputLabelProps={{ shrink: true, required: true }}
+          type="datetime-local"
+         defaultValue={date}
+          //value={formik.values.date}
+          onChange={e => setDate1(e.target.value)}
+        />
+        </Grid>  
+        <Grid item xs={12} sm={6}>
+        <TextField
+        name="someDate"
+        label="Choose Date"
+        InputLabelProps={{ shrink: true, required: true }}
+        type="datetime-local"
+       defaultValue={date}
+        //value={formik.values.date}
+        onChange={e => setDate2(e.target.value)}
+      />
 
+      </Grid>  
             </Grid>
             <Button 
             color="secondary"
