@@ -5,8 +5,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { TextField } from '@mui/material';
-// import Profile from '../Profile/Profile'
-// import {UserContext} from '../Profile/Profile'
+import axios from 'axios';
 
 
 const style = {
@@ -23,7 +22,7 @@ const style = {
 
 
 
-export default function BasicModal({date, date1, date2}) {
+export default function BasicModal({date, date1, date2, ad}) {
   const [open, setOpen] = React.useState(false);
   const [email, setEmail] = React.useState("");
   const handleOpen = () => setOpen(true);
@@ -33,6 +32,19 @@ export default function BasicModal({date, date1, date2}) {
   const makeAppointment = (e) => {
     const date = e.target.innerText;
     const userEmail = email;
+    const advert = ad;
+    console.log(advert);
+
+    return axios({
+      method: "POST",
+      data: {
+        date: date,
+        userEmail: userEmail,
+        advert: advert[0]
+      },
+      withCredentials: true,
+      url: "http://localhost:8080/api/appointments"
+  }).then(res => console.log(res))
     
   }
 

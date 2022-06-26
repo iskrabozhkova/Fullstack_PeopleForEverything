@@ -12,6 +12,8 @@ const AdvertSchema = new mongoose.Schema({
     date1: {type: String},
     date2: {type: String},
 },
-{ collation: { locale: 'en_US', strength: 1 }} )
+{ collation: { locale: 'en_US', strength: 1 }},
+{ timestamps: true }
+ )
 
 module.exports = mongoose.model('Adverts', AdvertSchema);

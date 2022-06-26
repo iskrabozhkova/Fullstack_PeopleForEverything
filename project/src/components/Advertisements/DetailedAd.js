@@ -7,7 +7,7 @@ import {Container, Button} from '@mui/material'
 import './DetailedAdd.css'
 import BasicModal from './BasicModal';
 
-function DetailedAd(props) {
+function DetailedAd() {
   const { id } = useParams();
   const [ad, setAd] = useState([]);
   useEffect(() => {
@@ -31,7 +31,7 @@ function DetailedAd(props) {
       <h1>{ad[0]?.lastName}</h1>
       <h1>{ad[0]?.category}</h1>
       <h1>{ad[0]?.longDescription}</h1>
-      <BasicModal date={ad[0]?.date} date1={ad[0]?.date1} date2={ad[0]?.date2}/>
+      <BasicModal date={ad[0]?.date} date1={ad[0]?.date1} date2={ad[0]?.date2} ad={ad}/>
       </Container>
     </div>
   )
