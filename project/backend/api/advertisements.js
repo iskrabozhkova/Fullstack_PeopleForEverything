@@ -23,9 +23,13 @@ router.post('/', async (req,res) => {
 //     res.send("Success");
 //  })
  router.get('/:id', (req, res) => {
-    const id = req.params['id'];
-    Advert.findOne({ _id: mongoose.Types.ObjectId(Number(id)) }).then(res => console.log(res))
-       
+    // const id = req.params['id'];
+    // Advert.findOne({ _id: mongoose.Types.ObjectId(Number(id)) }).then(res => console.log(res))
+    const id = req.params['id'].substring(1);
+    console.log(id);
+       Advert.findOne({ '_id': id }, function(err, add){
+           res.send(add);
+       })
  })
  router.get('/', async(req, res) => {
         // const posts = await Advert.find().toArray();

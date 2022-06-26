@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import { Home } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const usedStyles = makeStyles({
   navbarDisplayFlex: {
@@ -43,6 +44,17 @@ const usedStyles = makeStyles({
   }
 });
 
+const logout = () => {
+  return axios({
+    method: "GET",
+    withCredentials: true,
+    url: "http://localhost:8080/api/auth/logout"
+}).then(res => {
+    console.log('Logout successfully');
+    localStorage.removeItem('auth-token');
+    window.location.replace("http://localhost:3000/")
+  })
+}
 const navLinks = [
   { title: "Home", path: "/" },
   { title: "Registration", path: "/registration" },
@@ -64,10 +76,13 @@ const ButtonAppBar = () => {
               className={classes.navDisplayFlex}
             >
               {navLinks.map(({ title, path }) => (
-                <ListItem button key={title} component={Link} to={path} className={classes.item}>
+                <ListItem button key={title} component={Link} to={path} className={classes.item} >
                   <ListItemText className={classes.linkText} primary={title} />
                 </ListItem>
               ))}
+              <ListItem button key="Logout" to="" className={classes.item} onClick={logout}>
+              <ListItemText className={classes.linkText} primary="Logout" />
+            </ListItem>
             </List>
           </Container>
         </Toolbar>
