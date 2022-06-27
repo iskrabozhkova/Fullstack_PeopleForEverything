@@ -14,8 +14,11 @@ function Comments({ad, id}) {
              withCredentials: true,
              url: `http://localhost:8080/api/comments/${id}`
         }).then(res => {
-            setComments(old => [...old, {commentContent: res.data.commentContent, userName: res.data.userName}])
-          console.log(res.data)
+            console.log("cccccc")
+            const user = res.data.comments[0].userName;
+            const content = res.data.comments[0].comment;
+            setComments(old => [...old, {commentContent: content, userName: user}])
+          
           
         });
        },[])
@@ -44,8 +47,8 @@ function Comments({ad, id}) {
             {
                 comments.map((c, i) => (
                         <div key={i}>
-                        <Typography key={i} gutterBottom variant="subtitle1">  {c.userName}</Typography>
-                        <Typography key={i} gutterBottom variant="subtitle1">  {c.commentContent}</Typography>
+                        <Typography  gutterBottom variant="subtitle1">  {c.userName}</Typography>
+                        <Typography  gutterBottom variant="subtitle1">  {c.commentContent}</Typography>
                         </div>
                 ))
             }

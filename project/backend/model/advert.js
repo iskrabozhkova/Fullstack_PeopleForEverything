@@ -12,7 +12,7 @@ const AdvertSchema = new mongoose.Schema({
     date: {type: String},
     date1: {type: String},
     date2: {type: String},
-    comments:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
+    comments:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Comments' }]
 },
 { collation: { locale: 'en_US', strength: 1 }},
 { timestamps: true }

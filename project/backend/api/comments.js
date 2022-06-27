@@ -11,17 +11,26 @@ router.post('/', (req,res) => {
          comment: comment,
          adId: adId
      })
-    newComment.save();
+     
+    newComment.save((err, result) => {
+        if(err){
+            console.log(err)
+        }else{
+            Advert.findById(adId, (err, post) => {
+                post.comments.push(result);
+                post.save();
+            })
+        }
+    })
+   
   res.status(201).send({message: "Appointment created"})
 })
 router.get('/:id', (req, res) => {
     const id = req.params['id'].substring(1);
-       Comment.findById({ 'adId': id }, function(err, add){
-        // const commentContent = add.comment;
-        // const userName = add.userName;
-        console.log(add)
-           //res.send({commentContent, userName });
-       })
+   Advert.findById(id).populate('comments').exec( function (err, post) {
+    console.log(post)
+    res.send(post);
+   })
 })
 
 module.exports = router;

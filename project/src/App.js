@@ -85,7 +85,7 @@ useEffect(() => {
       <Route path='/addvertisement/new' element={<AddPost onAddPost={addPost}/>}/>
       <Route path='/addvertisements' element={<Posts posts={posts}/>}/>
       <Route path='/addvertisements/:id' element={<DetailedAd/>}/>
-      <Route path='/profile/:id' element={<Profile/>}/>
+      <Route path='/profile' element={<Profile/>}/>
       <Route path='/favs' element={<Favourites/>}/>
       <Route path='/appointments' element={<Appointments/>}/>
     </Routes>
