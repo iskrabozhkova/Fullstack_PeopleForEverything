@@ -1,8 +1,3 @@
-#toolbar{
-    background-color: #9C27B0;
-}
-@media (min-width: 600px){
-.MuiToolbar-gutters {
-    padding: 0px;
-}
+.MuiPaper-root{
+    background-color: #4F45AC;
 }

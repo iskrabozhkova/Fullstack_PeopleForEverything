@@ -14,6 +14,7 @@ import { Home } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+
 const usedStyles = makeStyles({
   navbarDisplayFlex: {
     display: "flex",
@@ -36,7 +37,7 @@ const usedStyles = makeStyles({
     height: "500px",
     position: "absolute",
     width: "200px",
-    height: "100%"
+    height: "100%",
   },
   item: {
     height: "70px",
@@ -67,7 +68,7 @@ const ButtonAppBar = () => {
   const classes = usedStyles();
   return (
     <>
-      <AppBar position="static" color="primary" className={classes.nav}>
+      <AppBar position="static" color="transperant" className={classes.nav}>
         <Toolbar>
           <Container maxWidth="lg" className={classes.navbarDisplayFlex}>
             <List

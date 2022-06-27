@@ -1,16 +1,21 @@
 .bg-image{
-    background-image: url("../../../public/images/home.png");
+    background-image: url("../../../public/images/snapedit_1656366915692.jpg");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 #header{
-    color: #1D8395;
+    color: #4F45AC;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 50px;
 }
 .button{
     background-color: red;
+}
+.container-home{
+    width: 20%;
+    margin-left: 17%;
+    margin-top: 10%;
 }
