@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 import { Navigate } from 'react-router-dom'
 import DetailedAd from './DetailedAd';
 import axios from 'axios';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import './PostCard.css'
 
 
 export default function PostCard({post, addToFavs, inFavs, ...rest}) {
@@ -31,9 +33,17 @@ const getDetails = (post) =>{
       data: post,
       withCredentials: true,
       url: "http://localhost:8080/api/favs"
-  })
+  }).then(res => console.log(res))
   }
+  // const likePost = (id) => {
+  //   return axios({
+  //     method: "PUT",
+  //     data: id,
+  //     withCredentials: true,
+  //     url: "http://localhost:8080/api/ratings"
+  // })
 
+  // }
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardContent>
@@ -44,8 +54,9 @@ const getDetails = (post) =>{
           Short description: {post.service}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-      
+  
       </Typography>
+      
       </CardContent>
       <CardActions>
         <Button size="small" onClick={() => getDetails(post)}>See details</Button>

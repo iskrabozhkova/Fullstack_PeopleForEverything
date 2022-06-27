@@ -7,10 +7,12 @@ const AdvertSchema = new mongoose.Schema({
     category: {type: String, required: true},
     service: {type: String, required: true},
     longDescription: {type: String, required: true},
+    likes:[{type: mongoose.Types.ObjectId,ref:"User"}],
     price: {type: Number},
     date: {type: String},
     date1: {type: String},
     date2: {type: String},
+    comments:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
 },
 { collation: { locale: 'en_US', strength: 1 }},
 { timestamps: true }

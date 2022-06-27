@@ -7,10 +7,13 @@ import {Container, Button} from '@mui/material'
 import './DetailedAdd.css'
 import BasicModal from './BasicModal';
 import Comments from '../Comments/Comments';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 function DetailedAd() {
   const { id } = useParams();
   const [ad, setAd] = useState([]);
+  const [likes, setLikes] = useState("");
+
   useEffect(() => {
     axios({
          method: "GET",
@@ -18,9 +21,22 @@ function DetailedAd() {
          url: `http://localhost:8080/api/adverts/${id}`
     }).then(res => {
       //console.log(res.data)
+      setLikes(res.data.likes.length)
       setAd(old => [...old, res.data]);
     });
    },[])
+
+   const likePost = (id) => {
+    return axios({
+      method: "PUT",
+      data: id,
+      withCredentials: true,
+      url: `http://localhost:8080/api/ratings/${id}`
+  }).then(res => {
+    setLikes(res.data.likes.length);
+  })
+
+  }
   
    console.log(ad[0]?.firstName)
   return (
@@ -32,9 +48,11 @@ function DetailedAd() {
       <h1>{ad[0]?.lastName}</h1>
       <h1>{ad[0]?.category}</h1>
       <h1>{ad[0]?.longDescription}</h1>
+      <h1>Likes: {likes}</h1>
+      <ThumbUpIcon className="icon" onClick={() => {likePost(id)}}/>
       <BasicModal date={ad[0]?.date} date1={ad[0]?.date1} date2={ad[0]?.date2} ad={ad}/>
       </Container>
-      <Comments ad={ad[0]}/>
+      <Comments ad={ad[0]} id={id}/>
     </div>
   )
 }

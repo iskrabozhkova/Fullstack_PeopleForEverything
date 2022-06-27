@@ -14,5 +14,14 @@ router.post('/', (req,res) => {
     newComment.save();
   res.status(201).send({message: "Appointment created"})
 })
+router.get('/:id', (req, res) => {
+    const id = req.params['id'].substring(1);
+       Comment.findById({ 'adId': id }, function(err, add){
+        // const commentContent = add.comment;
+        // const userName = add.userName;
+        console.log(add)
+           //res.send({commentContent, userName });
+       })
+})
 
 module.exports = router;
