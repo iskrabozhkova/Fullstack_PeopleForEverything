@@ -14,6 +14,7 @@ import Profile from './components/Profile/Profile';
 import Posts from './components/Advertisements/Posts';
 import Favourites from './components/Advertisements/Favourites';
 import { Navigate } from 'react-router-dom'
+import Appointments from './components/Appointments/Appointments'
 
 
 function App() {
@@ -54,6 +55,7 @@ async function loginUser(user){
   const token = res.data.token;
   localStorage.setItem('auth-token', token);
   setUserData(res.data.email);
+  localStorage.setItem('userData', JSON.stringify(res.data.userData));
   //window.history.push("/profile")
   window.history.pushState(user, '', "http://localhost:3000/profile");
   window.location.replace(`http://localhost:3000/profile/:${res.data.userData._id}`)
@@ -85,6 +87,7 @@ useEffect(() => {
       <Route path='/addvertisements/:id' element={<DetailedAd/>}/>
       <Route path='/profile/:id' element={<Profile/>}/>
       <Route path='/favs' element={<Favourites/>}/>
+      <Route path='/appointments' element={<Appointments/>}/>
     </Routes>
     </Router>
     </div>

@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 
 const AppointmentSchema = new mongoose.Schema({
     id: {type: mongoose.Types.ObjectId},
-    email: {type: String
-        },
+    email: {type: String},
     date: {type: String},
     advert: {type: mongoose.Schema.Types.Mixed}
 },

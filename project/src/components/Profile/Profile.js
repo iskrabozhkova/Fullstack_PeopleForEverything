@@ -23,9 +23,9 @@ function Profile() {
   return (
     <div>
       <h1>Profile</h1>
-      <h1>{userData[0].firstName}</h1>
-      <h1>{userData[0].lastName}</h1>
-      <h1>{userData[0].email}</h1>
+      <h1>{userData[0]?.firstName}</h1>
+      <h1>{userData[0]?.lastName}</h1>
+      <h1>{userData[0]?.email}</h1>
     </div>
   )
 }
