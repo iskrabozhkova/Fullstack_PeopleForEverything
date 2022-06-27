@@ -6,6 +6,7 @@ import ButtonAppBar from '../Menu/AppBar';
 import {Container, Button} from '@mui/material'
 import './DetailedAdd.css'
 import BasicModal from './BasicModal';
+import Comments from '../Comments/Comments';
 
 function DetailedAd() {
   const { id } = useParams();
@@ -33,6 +34,7 @@ function DetailedAd() {
       <h1>{ad[0]?.longDescription}</h1>
       <BasicModal date={ad[0]?.date} date1={ad[0]?.date1} date2={ad[0]?.date2} ad={ad}/>
       </Container>
+      <Comments ad={ad[0]}/>
     </div>
   )
 }
