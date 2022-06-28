@@ -1,12 +1,25 @@
 import React from 'react'
 import {Avatar, Button , TextField, MenuItem, Grid, Typography, Box} from '@mui/material/'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import ButtonAppBar from '../Menu/AppBar';
+import ButtonAppBarNotRegistered from '../Menu/AppBarNotRegistered';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import './Login.css'
 
 export default function Login({onLogin}) {
-  const theme = createTheme();
+  const theme = createTheme({
+    palette: {
+      secondary: {
+        main: "#4F45AC"
+      }
+    },
+    typography: {
+      fontFamily: [
+        'Courier New',
+         'Courier', 
+         'monospace'
+      ].join(',')
+  }});
   const UserSchema = Yup.object().shape({
     password: Yup.string().min(7, 'Too Short!'),
     email: Yup.string().email(),
@@ -30,19 +43,18 @@ export default function Login({onLogin}) {
   return (
     <div>
       <ThemeProvider theme={theme}>
-      <ButtonAppBar/>
+      <ButtonAppBarNotRegistered/>
         <form className="form-container" onSubmit={formik.handleSubmit}>
           <Box
             sx={{
-              marginTop: 8,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}/>
+            <Avatar sx={{ mt: 5, bgcolor: 'secondary.main' }}/>
             <Typography component="h1" variant="h5">Login</Typography>
-            <Box  sx={{ mt: 3 }}>
+            <Box  sx={{ mt: 3 }} className="box-login">
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <TextField
@@ -91,7 +103,7 @@ export default function Login({onLogin}) {
                   {option.value}
                   </MenuItem>
                 ))}
-        </TextField>
+              </TextField>
                 </Grid>
               </Grid>
               <Button 

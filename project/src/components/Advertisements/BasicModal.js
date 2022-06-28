@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { TextField } from '@mui/material';
 import axios from 'axios';
+import './BasicModal.css'
 
 
 const style = {
@@ -51,7 +52,7 @@ export default function BasicModal({date, date1, date2, ad}) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button className="appointment-btn" onClick={handleOpen}>Make an appointment</Button>
      
       <Modal
         open={open}

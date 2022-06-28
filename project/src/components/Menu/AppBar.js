@@ -57,10 +57,9 @@ const logout = () => {
 }
 const navLinks = [
   { title: "Home", path: "/" },
-  { title: "Registration", path: "/registration" },
-  { title: "Login", path: "/login" },
   { title: "Add Advertisement", path: "/addvertisement/new" },
   { title: "Advertisements", path: "/addvertisements" },
+  { title: "Favourites", path: "/favs" },
 ];
 
 const ButtonAppBar = () => {

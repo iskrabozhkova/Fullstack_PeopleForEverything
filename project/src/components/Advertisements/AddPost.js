@@ -3,6 +3,8 @@ import React, {useState} from 'react'
 import {Avatar, Button , TextField, Grid, Typography, Box, Container} from '@mui/material/'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ButtonAppBar from '../Menu/AppBar'
+import './AddPost.css'
+import AssignmentIcon from '@mui/icons-material/Assignment'
 
 function AddPost({onAddPost}) {
     const [firstName,setFirstName] = useState("");
@@ -15,7 +17,19 @@ function AddPost({onAddPost}) {
     const [date2,setDate2] = useState([]);
     const [longDescription,setLongDescription] = useState('');
 
-    const theme = createTheme();
+    const theme = createTheme({
+      palette: {
+        secondary: {
+          main: "#4F45AC"
+        }
+      },
+      typography: {
+        fontFamily: [
+          'Courier New',
+           'Courier', 
+           'monospace'
+        ].join(',')
+    }});
 function submitPost(event){
     event.preventDefault();
     onAddPost({firstName, lastName, category, service, longDescription, price, date, date1, date2});
@@ -28,15 +42,16 @@ function submitPost(event){
       <form className="form-container" onSubmit={submitPost}>
         <Box
           sx={{
-            marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}/>
+        <Avatar sx={{ mt: 4, bgcolor: 'secondary.main' }}>
+        <AssignmentIcon />
+      </Avatar>
           <Typography component="h1" variant="h5">Add advertisement</Typography>
-          <Box  sx={{ mt: 3 }}>
+          <Box  className="box-post" sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -115,7 +130,6 @@ function submitPost(event){
             InputLabelProps={{ shrink: true, required: true }}
             type="datetime-local"
            defaultValue={date}
-            //value={formik.values.date}
             onChange={e => setDate(e.target.value)}
           />
           </Grid>        
@@ -126,7 +140,6 @@ function submitPost(event){
           InputLabelProps={{ shrink: true, required: true }}
           type="datetime-local"
          defaultValue={date}
-          //value={formik.values.date}
           onChange={e => setDate1(e.target.value)}
         />
         </Grid>  
@@ -137,7 +150,6 @@ function submitPost(event){
         InputLabelProps={{ shrink: true, required: true }}
         type="datetime-local"
        defaultValue={date}
-        //value={formik.values.date}
         onChange={e => setDate2(e.target.value)}
       />
 

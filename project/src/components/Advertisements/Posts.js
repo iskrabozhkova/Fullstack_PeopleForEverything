@@ -5,34 +5,22 @@ import Categories from '../Categories/Categories';
 import { Grid, Button, Container, Stack, Typography } from '@mui/material';
 
 function Posts({posts}) {
-  // console.log(favs)
   const [filter, setFilter] = useState("");
-  // let postsToShow;
-  // let inFavs;
-  // if(showFavs) {
-  //   postsToShow = favs;
-  //   inFavs = (post) => true;
-  // } else {
-  //   postsToShow = posts;
-  //   inFavs = (post) => favs.some(fav => fav.id === post.id);
-  // }
 
   function changeFilter(filter){
     setFilter(filter);
   }
-
   return (
     
     <div>
+      <h1>Advertisements</h1>
       <Categories onFilterCategories={changeFilter}></Categories>
       <Grid container spacing={12} >
       <Grid item xs={10} ml={55} mt={30}>
-      
       <Grid container spacing={12} columnGap={10} rowGap={5}>
          {Object.keys(posts)
           .filter((key, index) => filter === posts[key].category)
           .map((key, index) => {
-            // console.log(posts[key]);
              return <PostCard post={posts[key]} key={index}></PostCard>
          })
          }

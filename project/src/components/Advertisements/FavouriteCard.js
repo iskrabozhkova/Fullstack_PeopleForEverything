@@ -2,23 +2,27 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Navigate } from 'react-router-dom'
-import DetailedAd from './DetailedAd';
-import axios from 'axios';
+import './FavouriteCard.css'
+import {Grid} from '@mui/material';
+
+
 
 
 export default function FavCard({post}) {
-
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Grid container spacing={12} >
+      <Grid item xs={10} ml={20} mt={20}>
+      <Grid container spacing={12} columnGap={5} rowGap={5}></Grid>
+    <Card sx={{ maxWidth: 345 }} className="fav-card">
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Name: {post.firstName}
         </Typography>
       </CardContent>
     </Card>
+    </Grid>
+    </Grid>
+  
   );
 }

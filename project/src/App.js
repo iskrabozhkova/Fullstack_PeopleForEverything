@@ -16,7 +16,6 @@ import Favourites from './components/Advertisements/Favourites';
 import { Navigate } from 'react-router-dom'
 import Appointments from './components/Appointments/Appointments'
 
-
 function App() {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);

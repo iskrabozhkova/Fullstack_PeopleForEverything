@@ -44,12 +44,17 @@ function DetailedAd() {
       <ButtonAppBar></ButtonAppBar>
       <h1>Details about advertisement</h1>
       <Container className="container">
-      <h1>{ad[0]?.firstName}</h1>
-      <h1>{ad[0]?.lastName}</h1>
-      <h1>{ad[0]?.category}</h1>
-      <h1>{ad[0]?.longDescription}</h1>
-      <h1>Likes: {likes}</h1>
-      <ThumbUpIcon className="icon" onClick={() => {likePost(id)}}/>
+      <h3>Username</h3>
+      <p>{ad[0]?.firstName} {ad[0]?.lastName}</p>
+      <h3>Category</h3>
+      <p>{ad[0]?.category}</p>
+      <h3>Description</h3>
+      <p>{ad[0]?.longDescription}</p>
+      <div className="likes">
+        <h3 id="like-heading">Like</h3>
+        <ThumbUpIcon id="like-icon" className="icon" onClick={() => {likePost(id)}}/>
+      </div>
+      <h3>{likes} like this</h3>
       <BasicModal date={ad[0]?.date} date1={ad[0]?.date1} date2={ad[0]?.date2} ad={ad}/>
       </Container>
       <Comments ad={ad[0]} id={id}/>

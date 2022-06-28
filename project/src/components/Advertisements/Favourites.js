@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import axios from 'axios';
 import PostCard from './PostCard';
 import FavCard from './FavouriteCard';
+import ButtonAppBar from '../Menu/AppBar';
 
 function Favourites() {
     const [favs, setFavs] = useState([]);
@@ -21,6 +22,8 @@ function Favourites() {
   return (
     
     <div>
+    <h1>Favourite freelansers</h1>
+    <ButtonAppBar/>
         <ul>
            {
            favs.filter((el, i, inputArr) => {
