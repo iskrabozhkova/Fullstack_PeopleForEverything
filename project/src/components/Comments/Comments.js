@@ -14,12 +14,12 @@ function Comments({ad, id}) {
              withCredentials: true,
              url: `http://localhost:8080/api/comments/${id}`
         }).then(res => {
-            console.log("cccccc")
-            const user = res.data.comments[0].userName;
-            const content = res.data.comments[0].comment;
-            setComments(old => [...old, {commentContent: content, userName: user}])
-          
-          
+            const commentsData = res.data.comments;
+            commentsData.map((comment, i) => {
+                const user = comment.userName;
+                const content = comment.comment;
+                setComments(old => [...old, {commentContent: content, userName: user}])
+            })
         });
        },[])
 
@@ -36,7 +36,7 @@ function Comments({ad, id}) {
             url: `http://localhost:8080/api/comments`
        }).then(res => {
           console.log(res);
-    
+          window.location.reload();
        });
     }
 
