@@ -68,7 +68,7 @@ const ButtonAppBar = () => {
   const classes = usedStyles();
   return (
     <>
-      <AppBar position="static" color="transperant" className={classes.nav}>
+      <AppBar position="static" color="primary" className={classes.nav}>
         <Toolbar>
           <Container maxWidth="lg" className={classes.navbarDisplayFlex}>
             <List

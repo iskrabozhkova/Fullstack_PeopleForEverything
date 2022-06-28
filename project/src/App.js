@@ -58,7 +58,7 @@ async function loginUser(user){
   localStorage.setItem('userData', JSON.stringify(res.data.userData));
   //window.history.push("/profile")
   window.history.pushState(user, '', "http://localhost:3000/profile");
-  window.location.replace(`http://localhost:3000/profile/:${res.data.userData._id}`)
+  window.location.replace(`http://localhost:3000/profile`)
   })
 }
 
@@ -87,7 +87,7 @@ useEffect(() => {
       <Route path='/addvertisements/:id' element={<DetailedAd/>}/>
       <Route path='/profile' element={<Profile/>}/>
       <Route path='/favs' element={<Favourites/>}/>
-      <Route path='/appointments' element={<Appointments/>}/>
+      <Route path='/appointments/:id' element={<Appointments/>}/>
     </Routes>
     </Router>
     </div>

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Advert = require('../model/advert');
+const User = require('../model/user');
 const mongoose = require('mongoose');
 const Appointment = require('../model/appointment');
 
@@ -11,23 +12,27 @@ router.post('/', (req,res) => {
         date: date,
         advert: advert
     })
-   newAppointment.save();
+   newAppointment.save((err, result) => {
+    if(err){
+        console.log(err)
+    }else{
+        User.findById(userEmail, (err, appointment) => {
+            console.log(appointment)
+             appointment.appointments.push(result);
+             appointment.save();
+        })
+    }
+})
  res.status(201).send({message: "Appointment created"})
 })
 
-router.post('/allAppointments', (req,res) => {
-    const id = req.data;
-    // Appointment.find({ '_id': id }, function(err, add){
-    //     res.send(add);
-    //     console.log(add);
-    // })
-    Appointment.find({}, function(err, appointments) {
-     
-        // let appointmentsMap = {};
-        // appointments.forEach(function(appointment) {
-        //     appointmentsMap[appointment._id] = appointment;
-        // });
-        // res.send(appointmentsMap);  
-      })
+router.get('/:id', (req, res) => {
+    const id = req.params['id'].substring(1);
+   User.findById(id).populate('appointments').exec( function (err, appointment) {
+    console.log(appointment)
+    res.send(appointment);
+   })
 })
+
+
 module.exports = router;
