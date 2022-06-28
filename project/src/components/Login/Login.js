@@ -1,26 +1,37 @@
-import React, {useState} from 'react'
-import {Avatar, Button , TextField, MenuItem, Select, FormControl, InputLabel, Link, Grid, Typography, Box, Container} from '@mui/material/'
+import React from 'react'
+import {Avatar, Button , TextField, MenuItem, Grid, Typography, Box} from '@mui/material/'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import './Login.css'
 import ButtonAppBar from '../Menu/AppBar';
-import ButtonAppBarNotRegistered from '../Menu/AppBarNotRegistered';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 export default function Login({onLogin}) {
   const theme = createTheme();
-  const [password,setPassword] = useState('');
-  const [email,setEmail] = useState('');
-  const [role,setRole] = useState('');
+  const UserSchema = Yup.object().shape({
+    password: Yup.string().min(7, 'Too Short!'),
+    email: Yup.string().email(),
+    role: Yup.string()
+  })
 
-  function submitLogin(event){
-    event.preventDefault();
-      onLogin({email, password, role});
-  }
+  const formik = useFormik({
+    initialValues: {
+      password: "",
+      email: "",
+      role: "user"
+    },
+    validationSchema: UserSchema,
+    onSubmit: ({password, email, role}) => {
+      onLogin({password, email, role});
+    }
+  });
+  const roles = [{value: 'user',},{value: 'freelancer',}];
+  const { errors, touched, getFieldProps } = formik;
 
   return (
     <div>
       <ThemeProvider theme={theme}>
-      <ButtonAppBarNotRegistered/>
-        <form className="form-container" onSubmit={submitLogin}>
+      <ButtonAppBar/>
+        <form className="form-container" onSubmit={formik.handleSubmit}>
           <Box
             sx={{
               marginTop: 8,
@@ -32,17 +43,19 @@ export default function Login({onLogin}) {
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}/>
             <Typography component="h1" variant="h5">Login</Typography>
             <Box  sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-           
-                <Grid item xs={12} >
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
                   <TextField
                     required
                     fullWidth
                     id="email"
                     label="Email Address"
                     name="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    {...getFieldProps('email')}
+                    error={Boolean(touched.email && errors.email)}
+                    helperText={touched.email && errors.email}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -53,23 +66,34 @@ export default function Login({onLogin}) {
                     label="Password"
                     type="password"
                     id="password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    {...getFieldProps('password')}
+                    error={Boolean(touched.password && errors.password)}
+                    helperText={touched.password && errors.password}
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <FormControl sx={{ m: 1, width: 500 }}>
-                    <InputLabel id="role-input">Login as</InputLabel>
-                    <Select
-                      id="select-role"
-                      value={role}
-                      onChange={e => setRole(e.target.value)}
-                    >
-                      <MenuItem value={'User'}>User</MenuItem>
-                      <MenuItem value={'Freelancer'}>Freelancer</MenuItem>
-                    </Select>
-                  </FormControl>
+                <TextField
+                  required
+                  fullWidth
+                  id="outlined-select-currency"
+                  select
+                  label="Select"
+                  value={formik.values.role}
+                  onChange={formik.handleChange}
+                  {...getFieldProps('role')}
+                  error={Boolean(touched.role && errors.role)}
+                  helperText={touched.role && errors.role}
+                >
+                {roles.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                  {option.value}
+                  </MenuItem>
+                ))}
+        </TextField>
                 </Grid>
+              </Grid>
               <Button 
               color="secondary"
                 type="submit"
@@ -79,9 +103,7 @@ export default function Login({onLogin}) {
               >
                 Login
               </Button>
-              </Grid>
             </Box>
-          
           </Box>
         </form>
       </ThemeProvider>
