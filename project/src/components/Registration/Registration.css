@@ -8,4 +8,13 @@
 }
 body{
     background-color: #f2eef9;
+        font-family:'Courier New', Courier, monospace     
+}
+.box-register{
+    background-color: rgb(187, 195, 238);
+    padding: 10%;
+    border-radius: 5%;
+}
+.link{
+    color: #f2eef9;
 }

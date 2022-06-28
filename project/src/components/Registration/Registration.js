@@ -3,12 +3,26 @@ import {Avatar, Button , TextField, MenuItem, Select, FormControl, InputLabel, L
 import { createTheme, ThemeProvider,styled } from '@mui/material/styles';
 import './Registration.css'
 import ButtonAppBar from '../Menu/AppBar';
+import ButtonAppBarNotRegistered from '../Menu/AppBarNotRegistered';
 import { LoadingButton } from '@mui/lab';
 import { useFormik, Form, FormikProvider } from 'formik';
 import * as Yup from 'yup';
 
+
 export default function Registration({onRegister}) {
-  const theme = createTheme();
+  const theme = createTheme({
+    palette: {
+      secondary: {
+        main: "#4F45AC"
+      }
+    },
+    typography: {
+      fontFamily: [
+        'Courier New',
+         'Courier', 
+         'monospace'
+      ].join(',')
+  }});
   const UserSchema = Yup.object().shape({
     id: Yup.string()
       .max(24, 'Too Long!'),
@@ -34,32 +48,24 @@ export default function Registration({onRegister}) {
       onRegister({firstName, lastName, password, email, role});
     }
   });
-  const roles = [
-    {
-      value: 'user',
-    },
-    {
-      value: 'freelancer',
-    }
-  ];
+  const roles = [{value: 'user',},{value: 'freelancer',}];
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
 
   return (
     <div>
       <ThemeProvider theme={theme}>
-      <ButtonAppBar/>
+      <ButtonAppBarNotRegistered/>
         <form className="form-container" onSubmit={formik.handleSubmit}>
           <Box
             sx={{
-              marginTop: 8,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}/>
-            <Typography component="h1" variant="h5">Register</Typography>
-            <Box  sx={{ mt: 3 }}>
+          <Avatar sx={{ mt: 8, mb: 1, bgcolor: 'secondary.main' }}/>
+          <Typography component="h1" variant="h5">Registration</Typography>
+            <Box sx={{ m: 3 }} className="box-register">
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -166,7 +172,7 @@ export default function Registration({onRegister}) {
               </Button>
               <Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/login" variant="body2">
                     Already have an account? Sign in
                   </Link>
                 </Grid>

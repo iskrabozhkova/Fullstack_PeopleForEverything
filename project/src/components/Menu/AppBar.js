@@ -34,7 +34,6 @@ const usedStyles = makeStyles({
     color: "white"
   },
   nav: {
-    height: "500px",
     position: "absolute",
     width: "200px",
     height: "100%",

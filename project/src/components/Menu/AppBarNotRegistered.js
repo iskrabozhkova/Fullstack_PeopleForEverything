@@ -13,6 +13,8 @@ import {
 import { Home } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import "./AppBar.css"
+import { createTheme, ThemeProvider,styled } from '@mui/material/styles';
+
 
 const usedStyles = makeStyles({
   navbarDisplayFlex: {
@@ -52,7 +54,6 @@ const navLinks = [
 const ButtonAppBarNotRegistered = () => {
   const classes = usedStyles();
   return (
-    <>
     <AppBar position="static" color="primary" className={classes.nav}>
         <Toolbar>
           <Container maxWidth="lg" className={classes.navbarDisplayFlex}>
@@ -61,6 +62,7 @@ const ButtonAppBarNotRegistered = () => {
               aria-labelledby="main navigation"
               className={classes.navDisplayFlex}
             >
+            
               {navLinks.map(({ title, path }) => (
                 <ListItem button key={title} component={Link} to={path} className={classes.item} >
                   <ListItemText className={classes.linkText} primary={title} />
@@ -70,7 +72,7 @@ const ButtonAppBarNotRegistered = () => {
           </Container>
         </Toolbar>
       </AppBar>
-    </>
+    
   );
 };
 
