@@ -22,7 +22,7 @@ function Favourites() {
   return (
     
     <div>
-    <h1>Favourite freelansers</h1>
+    <h1>Favourite advertisements</h1>
     <ButtonAppBarUser/>
         <ul>
            {

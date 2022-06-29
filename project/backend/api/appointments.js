@@ -20,6 +20,7 @@ router.post('/', (req,res) => {
         User.findOne({'email': userEmail}, (err, appointment) => {
              appointment.appointments.push(result);
              appointment.save();
+            
         })
     }
 })
@@ -27,9 +28,10 @@ router.post('/', (req,res) => {
 })
 
 router.get('/:id', (req, res) => {
-    const id = req.params['id'].substring(1);
+    const id = req.params['id'];
+    //console.log(id)
    User.findById(id).populate('appointments').exec( function (err, appointment) {
-    console.log(appointment)
+    //console.log('appointment ' + appointment)
     res.send(appointment);
    })
 })

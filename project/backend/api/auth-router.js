@@ -11,17 +11,28 @@ router.post('/register', async (req,res) => {
     // if(foundUser){
     //     return res.status(409).send({message: "User with given email already exists!"})
     // }
-    const salt = bcrypt.genSaltSync(10);
-    user.password = bcrypt.hashSync(user.password, salt);
-       const newUser = new User({
-           firstName: user.firstName,
-           lastName: user.lastName,
-           password: user.password,
-           email: user.email,
-           role: user.role
-       })
-    await newUser.save();
-    res.status(201).send({message: "User created"})
+    // User.findOne({
+    //     'email': user.email
+    // }, async function (err, userFound){
+    //     //if user found
+    //     if(userFound){
+    //        return res.sendStatus(500).send({message: 'User with this email already exists!'});
+    //     }else{
+            const salt = bcrypt.genSaltSync(10);
+            user.password = bcrypt.hashSync(user.password, salt);
+               const newUser = new User({
+                   firstName: user.firstName,
+                   lastName: user.lastName,
+                   password: user.password,
+                   email: user.email,
+                   role: user.role,
+                   photo: user.photo
+               })
+            await newUser.save();
+            return res.status(201).send({message: "User created"})
+    //     }
+    // })
+
 })
 
 router.post('/login', async (req,res) => {

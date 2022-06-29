@@ -1,22 +1,34 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios';
 
 function Appointments() {
     const userDetails = JSON.parse(localStorage.getItem('userData'));
     const id = userDetails._id;
+    const [appointments, setAppointments] = useState({});
     useEffect(() => {
         axios({
              method: "GET",
              withCredentials: true,
              url: `http://localhost:8080/api/appointments/${id}`
         }).then(res => {
-           console.log(res);
+          const appointmentsArray = res.data.appointments[0];
+           appointmentsArray.map(appointment => {
+            const userEmail = appointment.email;
+            const date = appointment.date;
+            const advert = appointment.advert;
+            setAppointments({userEmail, date, advert})
+            console.log(advert)
+           })
      
         });
        },[])
+
   return (
-    <div>Appointments</div>
+    <div>
+        <h1>Appointments</h1>
+        <p>{appointments.userEmail} {appointments.date}</p>
+    </div>
   )
 }
 

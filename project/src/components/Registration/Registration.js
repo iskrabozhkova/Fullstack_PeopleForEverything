@@ -31,6 +31,7 @@ export default function Registration({onRegister}) {
     password: Yup.string().min(7, 'Too Short!'),
     confirmedPassword: Yup.string().min(7, 'Too Short!'),
     email: Yup.string().email(),
+    photo: Yup.string(),
     role: Yup.string()
   })
 
@@ -41,10 +42,11 @@ export default function Registration({onRegister}) {
       password: "",
       confirmedPassword: "",
       email: "",
+      photo: "",
       role: "user"
     },
     validationSchema: UserSchema,
-    onSubmit: ({firstName, lastName, password, email, role}) => {
+    onSubmit: ({firstName, lastName, password, email, role, photo}) => {
       onRegister({firstName, lastName, password, email, role});
     }
   });
@@ -140,6 +142,21 @@ export default function Registration({onRegister}) {
                     helperText={touched.confirmedPassword && errors.confirmedPassword}
                 />
               </Grid>
+              <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                name="photo"
+                label="photo"
+                type="text"
+                id="photo"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                {...getFieldProps('photo')}
+                error={Boolean(touched.photo && errors.photo)}
+                helperText={touched.photo && errors.photo}
+              />
+            </Grid>
                 <Grid item xs={12}>
                 <TextField
                   required
