@@ -7,7 +7,8 @@ const FavSchema = new mongoose.Schema({
     category: {type: String, required: true},
     service: {type: String, required: true},
     price: {type: Number},
-    date: {date: Date}
+    date: {date: Date},
+    userId: {type: mongoose.Types.ObjectId, ref: 'Users'}
 },
 { collation: { locale: 'en_US', strength: 1 }} )
 

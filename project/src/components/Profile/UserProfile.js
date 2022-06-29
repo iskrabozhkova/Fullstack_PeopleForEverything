@@ -3,21 +3,21 @@ import { useParams } from "react-router-dom";
 import PropTypes from 'prop-types'
 import axios from "axios"
 import BasicModal from '../Advertisements/BasicModal';
-import ButtonAppBar from '../Menu/AppBar';
+import ButtonAppBarUser from '../Menu/AppBarUser';
 
-function Profile() {
+function UserProfile() {
     const userDetails = JSON.parse(localStorage.getItem('userData'));
   return (
     <div>
-    <ButtonAppBar/>
-      <h1>Profile</h1>
-    <h1>{userDetails.firstName}</h1>
-    <h1>{userDetails.lastName}</h1>
-    <h1>{userDetails.email}</h1>
+        <ButtonAppBarUser/>
+        <h1>Profile</h1>
+        <h1>{userDetails.firstName}</h1>
+        <h1>{userDetails.lastName}</h1>
+        <h1>{userDetails.email}</h1>
     </div>
   )
 }
 
-Profile.propTypes = {}
+UserProfile.propTypes = {}
 
-export default Profile
+export default UserProfile

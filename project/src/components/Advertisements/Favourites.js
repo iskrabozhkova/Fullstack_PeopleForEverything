@@ -7,16 +7,19 @@ import ButtonAppBarUser from '../Menu/AppBarUser';
 
 function Favourites() {
     const [favs, setFavs] = useState([]);
+    const userDetails = JSON.parse(localStorage.getItem('userData'));
+    const id = userDetails._id;
+
     useEffect(() => {
         axios({
              method: "GET",
              withCredentials: true,
-             url: "http://localhost:8080/api/favs"
+             url: `http://localhost:8080/api/favs/:${id}`
         }).then(res => {
-            console.log(res)
-            for(let prop in res.data){
-                    setFavs(favs => [...favs, res.data[prop]])
-            }
+            const data = res.data.favourites;
+            data.map(newFav => {
+              setFavs(favs => [...favs, newFav]);
+            })
         });
        },[])
   return (
@@ -26,9 +29,7 @@ function Favourites() {
     <ButtonAppBarUser/>
         <ul>
            {
-           favs.filter((el, i, inputArr) => {
-            return inputArr.indexOf(el) === i;
-           }).map((fav, idx) => 
+           favs.map((fav, idx) => 
             <FavCard key={idx} post={fav}></FavCard>   
            )
            }

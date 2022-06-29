@@ -13,6 +13,7 @@ import './PostCard.css'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 export default function PostCard({post, addToFavs, inFavs, ...rest}) {
+  const userDetails = JSON.parse(localStorage.getItem('userData'));
 const getDetails = (post) =>{
 //   return axios({
 //     method: "GET",
@@ -30,7 +31,10 @@ const getDetails = (post) =>{
     //addToFavs && addToFavs(post);
     return axios({
       method: "POST",
-      data: post,
+      data: {
+        post,
+        userId: userDetails._id
+      },
       withCredentials: true,
       url: "http://localhost:8080/api/favs"
   }).then(res => console.log(res))
@@ -65,10 +69,11 @@ const getDetails = (post) =>{
       </CardContent>
       <CardActions>
         <Button size="small" onClick={() => getDetails(post)}>See details</Button>
-        <FavoriteBorderIcon sx={{marginLeft: 6, cursor: 'pointer'}}>
+      
           <Button size="small" onClick={onAddToFavs}>
+          Add to favs
           </Button>
-        </FavoriteBorderIcon>
+      
       </CardActions>
     </Card>
   );

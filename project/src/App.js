@@ -15,6 +15,7 @@ import Posts from './components/Advertisements/Posts';
 import Favourites from './components/Advertisements/Favourites';
 import { Navigate } from 'react-router-dom'
 import Appointments from './components/Appointments/Appointments'
+import UserProfile from './components/Profile/UserProfile';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -56,10 +57,10 @@ async function loginUser(user){
   setUserData(res.data.email);
   localStorage.setItem('userData', JSON.stringify(res.data.userData));
   const userDetails = JSON.parse(localStorage.getItem('userData'));
-  if(userDetails.role == 'User'){
-     window.location.replace(`http://localhost:3000/profile`)
+  if(userDetails.role == 'user'){
+     window.location.replace(`http://localhost:3000/userProfile`)
   }else{
-       window.location.replace(`http://localhost:3000/addvertisement/new`)
+       window.location.replace(`http://localhost:3000/profile`)
   } 
   })
 }
@@ -88,7 +89,8 @@ useEffect(() => {
       <Route path='/addvertisements' element={<Posts posts={posts}/>}/>
       <Route path='/addvertisements/:id' element={<DetailedAd/>}/>
       <Route path='/profile' element={<Profile/>}/>
-      <Route path='/favs' element={<Favourites/>}/>
+      <Route path='/userProfile' element={<UserProfile/>}/>
+      <Route path='/favs/:id' element={<Favourites/>}/>
       <Route path='/appointments/:id' element={<Appointments/>}/>
     </Routes>
     </Router>
