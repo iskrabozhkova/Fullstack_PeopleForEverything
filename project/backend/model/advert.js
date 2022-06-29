@@ -9,6 +9,7 @@ const AdvertSchema = new mongoose.Schema({
     longDescription: {type: String, required: true},
     likes:[{type: mongoose.Types.ObjectId,ref:"User"}],
     price: {type: Number},
+    photo: {type: String},
     date: {type: String},
     date1: {type: String},
     date2: {type: String},

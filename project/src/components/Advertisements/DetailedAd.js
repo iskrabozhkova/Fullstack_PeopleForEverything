@@ -8,6 +8,7 @@ import './DetailedAdd.css'
 import BasicModal from './BasicModal';
 import Comments from '../Comments/Comments';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ButtonAppBarUser from '../Menu/AppBarUser';
 
 function DetailedAd() {
   const { id } = useParams();
@@ -41,7 +42,7 @@ function DetailedAd() {
    console.log(ad[0]?.firstName)
   return (
     <div>
-      <ButtonAppBar></ButtonAppBar>
+      <ButtonAppBarUser></ButtonAppBarUser>
       <h1>Details about advertisement</h1>
       <Container className="container">
       <h3>Username</h3>

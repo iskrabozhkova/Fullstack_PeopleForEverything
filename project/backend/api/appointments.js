@@ -16,8 +16,8 @@ router.post('/', (req,res) => {
     if(err){
         console.log(err)
     }else{
-        User.findById(userEmail, (err, appointment) => {
-            console.log(appointment)
+        console.log(userEmail);
+        User.findOne({'email': userEmail}, (err, appointment) => {
              appointment.appointments.push(result);
              appointment.save();
         })

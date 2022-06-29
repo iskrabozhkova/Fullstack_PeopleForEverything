@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
     password: {type: String, required: true},
     email: {type: String, required: true},
     role: {type: String},
-    appointments:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Appointments' }]
+    appointments:[{ type: Array, ref: 'Appointments' }]
 },
 { collation: { locale: 'en_US', strength: 1 }} )
 

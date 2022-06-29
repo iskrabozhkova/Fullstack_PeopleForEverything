@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ButtonAppBar from '../Menu/AppBar'
 import './AddPost.css'
 import AssignmentIcon from '@mui/icons-material/Assignment'
+import CustomizedSnackbar from '../Snackbar/Snackbar'
 
 function AddPost({onAddPost}) {
     const [firstName,setFirstName] = useState("");
@@ -16,6 +17,7 @@ function AddPost({onAddPost}) {
     const [date1,setDate1] = useState([]);
     const [date2,setDate2] = useState([]);
     const [longDescription,setLongDescription] = useState('');
+    const [photo,setPhoto] = useState('');
 
     const theme = createTheme({
       palette: {
@@ -32,8 +34,11 @@ function AddPost({onAddPost}) {
     }});
 function submitPost(event){
     event.preventDefault();
-    onAddPost({firstName, lastName, category, service, longDescription, price, date, date1, date2});
+    onAddPost({firstName, lastName, category, service, longDescription, price, photo, date, date1, date2});
+    return <CustomizedSnackbar/>
 }
+
+
 
   return (
     <div>
@@ -123,6 +128,18 @@ function submitPost(event){
                 onChange={e => setPrice(e.target.value)}
               />
             </Grid>
+            <Grid item xs={12}>
+            <TextField
+              required
+              fullWidth
+              name="photo"
+              label="add photo"
+              type="text"
+              id="photo"
+              value={photo}
+              onChange={e => setPhoto(e.target.value)}
+            />
+          </Grid>
             <Grid item xs={12} sm={6}>
             <TextField
             name="someDate"
@@ -156,7 +173,7 @@ function submitPost(event){
       </Grid>  
             </Grid>
             <Button 
-            color="secondary"
+              color="secondary"
               type="submit"
               fullWidth
               variant="contained"
@@ -164,14 +181,11 @@ function submitPost(event){
             >
               Add advertisement
             </Button>
-            <Grid>
-             
-            </Grid>
+         
           </Box>
         </Box>
       </form>
-    </ThemeProvider>
-    
+    </ThemeProvider>  
     </div>
   )
 }

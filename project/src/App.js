@@ -55,9 +55,12 @@ async function loginUser(user){
   localStorage.setItem('auth-token', token);
   setUserData(res.data.email);
   localStorage.setItem('userData', JSON.stringify(res.data.userData));
-  //window.history.push("/profile")
-  window.history.pushState(user, '', "http://localhost:3000/profile");
-  window.location.replace(`http://localhost:3000/profile`)
+  const userDetails = JSON.parse(localStorage.getItem('userData'));
+  if(userDetails.role == 'User'){
+     window.location.replace(`http://localhost:3000/profile`)
+  }else{
+       window.location.replace(`http://localhost:3000/addvertisement/new`)
+  } 
   })
 }
 

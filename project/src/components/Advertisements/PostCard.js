@@ -47,6 +47,11 @@ const getDetails = (post) =>{
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardContent>
+      <CardMedia
+      component="img"
+      height="140"
+      image={post.photo}
+    />
         <Typography gutterBottom variant="h5" component="div">
           Name: {post.firstName}
         </Typography>

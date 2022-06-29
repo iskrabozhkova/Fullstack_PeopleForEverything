@@ -57,11 +57,11 @@ const logout = () => {
 }
 const navLinks = [
   { title: "Home", path: "/" },
-  { title: "Add Advertisement", path: "/addvertisement/new" },
-  { title: "Appointments", path: "/appointments" },
+  { title: "Advertisements", path: "/addvertisements" },
+  { title: "Favourites", path: "/favs" },
 ];
 
-const ButtonAppBar = () => {
+const ButtonAppBarUser = () => {
   const classes = usedStyles();
   return (
     <>
@@ -89,4 +89,4 @@ const ButtonAppBar = () => {
   );
 };
 
-export default ButtonAppBar;
+export default ButtonAppBarUser;
