@@ -10,7 +10,7 @@ function Categories({onFilterCategories}) {
   }
   return (
     <div>
-    <ButtonAppBar/>
+  
     <Select
       labelId="demo-simple-select-label"
       id="demo-simple-select"

@@ -10,7 +10,7 @@ import DetailedAd from './DetailedAd';
 import axios from 'axios';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import './PostCard.css'
-
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 export default function PostCard({post, addToFavs, inFavs, ...rest}) {
 const getDetails = (post) =>{
@@ -65,7 +65,10 @@ const getDetails = (post) =>{
       </CardContent>
       <CardActions>
         <Button size="small" onClick={() => getDetails(post)}>See details</Button>
-        <Button size="small" onClick={onAddToFavs}>Add to favourites</Button>
+        <FavoriteBorderIcon sx={{marginLeft: 6, cursor: 'pointer'}}>
+          <Button size="small" onClick={onAddToFavs}>
+          </Button>
+        </FavoriteBorderIcon>
       </CardActions>
     </Card>
   );

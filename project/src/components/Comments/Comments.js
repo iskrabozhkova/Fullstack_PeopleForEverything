@@ -1,13 +1,28 @@
 import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
-import { Container, TextField, Typography, Button } from '@mui/material';
+import { Container, TextField, Typography, Button, Grid, Avatar, Divider } from '@mui/material';
 import axios from 'axios';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function Comments({ad, id}) {
     const [comments, setComments] = useState([]);
     const [comment, setComment] = useState("");
     const userDetails = JSON.parse(localStorage.getItem('userData'));
-    
+
+    const theme = createTheme({
+        palette: {
+          secondary: {
+            main: "#4F45AC"
+          }
+        },
+        typography: {
+          fontFamily: [
+            'Courier New',
+             'Courier', 
+             'monospace'
+          ].join(',')
+      }});
+
     useEffect(() => {
         axios({
              method: "GET",
@@ -41,31 +56,51 @@ function Comments({ad, id}) {
     }
 
   return (
+    
     <div>
+    <ThemeProvider theme={theme}>
         <Container>
-            <Typography gutterBottom variant="h6">Comments</Typography>
+            <Typography gutterBottom variant="h6" sx={{ fontWeight: 'bold' }}>Comments</Typography>
             {
                 comments.map((c, i) => (
                         <div key={i}>
-                        <Typography  gutterBottom variant="subtitle1">  {c.userName}</Typography>
-                        <Typography  gutterBottom variant="subtitle1">  {c.commentContent}</Typography>
+                        <Grid container wrap="nowrap" spacing={2}>
+                        <Grid item>
+                          <Avatar alt="Remy Sharp"/>
+                        </Grid>
+                        <Grid justifyContent="left" item xs zeroMinWidth>
+                          <h4 style={{ margin: 0, textAlign: "left" }}>{c.userName}</h4>
+                          <p style={{ textAlign: "left" }}>
+                                {c.commentContent}
+                          </p>
+                        </Grid>
+                      </Grid>
+                      <Divider variant="fullWidth" style={{ margin: "10px 0" }} />
                         </div>
                 ))
             }
         </Container>
         <Container>
-            <Typography>Write comment</Typography>
             <TextField
                 fullWidth
                 rows={4}
                 variant="outlined"
-                label="Comment"
+                label="Write your comment"
                 multiline
                 value={comment}
                 onChange={e => setComment(e.target.value)}
             ></TextField>
-            <Button fullWidth disabled={!comment} variant="contained" color="primary" onClick={handleClick}>Comment</Button>
+            <Button 
+                fullWidth 
+                disabled={!comment} 
+                variant="contained" 
+                color="primary" 
+                sx={{marginTop: 2}}
+                onClick={handleClick}>
+            Comment
+            </Button>
         </Container>
+        </ThemeProvider>
     </div>
   )
 }

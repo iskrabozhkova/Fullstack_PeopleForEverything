@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import PropTypes from 'prop-types'
 import { useParams } from "react-router-dom";
 import axios from 'axios'
-import ButtonAppBar from '../Menu/AppBar';
-import {Container, Button} from '@mui/material'
+import {Container, Button, Grid} from '@mui/material'
 import './DetailedAdd.css'
 import BasicModal from './BasicModal';
 import Comments from '../Comments/Comments';
@@ -21,7 +19,6 @@ function DetailedAd() {
          withCredentials: true,
          url: `http://localhost:8080/api/adverts/${id}`
     }).then(res => {
-      //console.log(res.data)
       setLikes(res.data.likes.length)
       setAd(old => [...old, res.data]);
     });
@@ -39,26 +36,30 @@ function DetailedAd() {
 
   }
   
-   console.log(ad[0]?.firstName)
   return (
     <div>
       <ButtonAppBarUser></ButtonAppBarUser>
       <h1>Details about advertisement</h1>
       <Container className="container">
-      <h3>Username</h3>
-      <p>{ad[0]?.firstName} {ad[0]?.lastName}</p>
-      <h3>Category</h3>
-      <p>{ad[0]?.category}</p>
-      <h3>Description</h3>
-      <p>{ad[0]?.longDescription}</p>
-      <div className="likes">
-        <h3 id="like-heading">Like</h3>
-        <ThumbUpIcon id="like-icon" className="icon" onClick={() => {likePost(id)}}/>
-      </div>
-      <h3>{likes} like this</h3>
-      <BasicModal date={ad[0]?.date} date1={ad[0]?.date1} date2={ad[0]?.date2} ad={ad}/>
+        <Grid  container spacing={1}>
+          <Grid container direction='column' sm={6}>
+            <h3>Username</h3>
+            <p>{ad[0]?.firstName} {ad[0]?.lastName}</p>
+            <h3>Category</h3>
+            <p>{ad[0]?.category}</p>
+            <h3>Description</h3>
+            <p>{ad[0]?.longDescription}</p>
+            <span className="likes">
+              <Button onClick={() => {likePost(id)}}>  <ThumbUpIcon id="like-icon" className="icon"/>Like</Button>
+            </span>
+            <h3 id="like-heading">{likes} like this</h3>
+            <BasicModal date={ad[0]?.date} date1={ad[0]?.date1} date2={ad[0]?.date2} ad={ad}/>
+            </Grid>
+            <Grid container item sm={6}>
+            <Comments ad={ad[0]} id={id}/>
+          </Grid>
+        </Grid>
       </Container>
-      <Comments ad={ad[0]} id={id}/>
     </div>
   )
 }

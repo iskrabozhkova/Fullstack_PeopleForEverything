@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import PostCard from './PostCard'
 import Categories from '../Categories/Categories';
 import { Grid, Button, Container, Stack, Typography } from '@mui/material';
-import ButtonAppBar from '../Menu/AppBar';
+import ButtonAppBarUser from '../Menu/AppBarUser';
 
 function Posts({posts}) {
   const [filter, setFilter] = useState("");
@@ -15,7 +15,7 @@ function Posts({posts}) {
     
     <div>
       <h1>Advertisements</h1>
-      <ButtonAppBar/>
+      <ButtonAppBarUser/>
       <Categories onFilterCategories={changeFilter}></Categories>
       <Grid container spacing={12} >
       <Grid item xs={10} ml={55} mt={30}>

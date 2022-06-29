@@ -7,6 +7,7 @@ import Modal from '@mui/material/Modal';
 import { TextField } from '@mui/material';
 import axios from 'axios';
 import './BasicModal.css'
+import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 
 
 const style = {
@@ -55,8 +56,9 @@ export default function BasicModal({date, date1, date2, ad}) {
 
   return (
     <div>
-      <Button className="appointment-btn" onClick={handleOpen}>Make an appointment</Button>
-     
+    <Box textAlign='center'>
+      <Button variant='contained' onClick={handleOpen}>Make an appointment</Button>
+      </Box>
       <Modal
         open={open}
         onClose={handleClose}
@@ -64,6 +66,9 @@ export default function BasicModal({date, date1, date2, ad}) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+        <Typography variant="h6" component="h2" sx={{textAlign: 'center'}}>
+          Make an appointment
+          </Typography>
         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
           Enter your email:
           </Typography>
@@ -79,9 +84,9 @@ export default function BasicModal({date, date1, date2, ad}) {
            Choose date: 
           </Typography>
           
-          <Button onClick={makeAppointment}>{date}</Button>
-          <Button onClick={makeAppointment}>{date1}</Button>
-          <Button onClick={makeAppointment}>{date2}</Button>
+          <Button variant='contained' startIcon={<BookmarkAddedIcon/>} sx={{margin: 1}} onClick={makeAppointment}>{date}</Button>
+          <Button variant='contained' startIcon={<BookmarkAddedIcon/>} sx={{margin: 1}} onClick={makeAppointment}>{date1}</Button>
+          <Button variant='contained' startIcon={<BookmarkAddedIcon/>} sx={{margin: 1}} onClick={makeAppointment}>{date2}</Button>
         </Box>
       </Modal>
     </div>
