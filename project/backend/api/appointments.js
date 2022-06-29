@@ -5,8 +5,9 @@ const User = require('../model/user');
 const mongoose = require('mongoose');
 const Appointment = require('../model/appointment');
 
+
 router.post('/', (req,res) => {
-    const {date, userEmail, advert} = req.body;
+    const {date, userEmail, creatorId, advert} = req.body;
     const newAppointment = new Appointment({
         email: userEmail,
         date: date,
@@ -17,10 +18,9 @@ router.post('/', (req,res) => {
         console.log(err)
     }else{
         console.log(userEmail);
-        User.findOne({'email': userEmail}, (err, appointment) => {
-             appointment.appointments.push(result);
-             appointment.save();
-            
+        User.findById(creatorId, (err, user) => {
+            user.appointments.push(result);
+            user.save();            
         })
     }
 })
@@ -29,9 +29,7 @@ router.post('/', (req,res) => {
 
 router.get('/:id', (req, res) => {
     const id = req.params['id'];
-    //console.log(id)
    User.findById(id).populate('appointments').exec( function (err, appointment) {
-    //console.log('appointment ' + appointment)
     res.send(appointment);
    })
 })

@@ -36,13 +36,13 @@ export default function BasicModal({date, date1, date2, ad}) {
     const userEmail = email;
     const advert = ad;
     //this.disabled = true;
-
     return axios({
       method: "POST",
       data: {
         date: date,
         userEmail: userEmail,
-        advert: advert[0]
+        advert: advert[0],
+        creatorId: advert[0].creatorId
       },
       withCredentials: true,
       url: "http://localhost:8080/api/appointments"

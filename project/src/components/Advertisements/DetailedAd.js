@@ -42,7 +42,7 @@ function DetailedAd() {
       <h1>Details about advertisement</h1>
       <Container className="container">
         <Grid  container spacing={1}>
-          <Grid container direction='column' sm={6}>
+          <Grid container direction='column' sm={6} item={true}>
             <h3>Username</h3>
             <p>{ad[0]?.firstName} {ad[0]?.lastName}</p>
             <h3>Category</h3>

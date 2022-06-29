@@ -18,6 +18,8 @@ function AddPost({onAddPost}) {
     const [date2,setDate2] = useState([]);
     const [longDescription,setLongDescription] = useState('');
     const [photo,setPhoto] = useState('');
+    const userDetails = JSON.parse(localStorage.getItem('userData'));
+    const creatorId = userDetails._id;
 
     const theme = createTheme({
       palette: {
@@ -34,7 +36,7 @@ function AddPost({onAddPost}) {
     }});
 function submitPost(event){
     event.preventDefault();
-    onAddPost({firstName, lastName, category, service, longDescription, price, photo, date, date1, date2});
+    onAddPost({firstName, lastName, category, service, longDescription, price, photo, date, date1, date2, creatorId});
     return <CustomizedSnackbar/>
 }
 

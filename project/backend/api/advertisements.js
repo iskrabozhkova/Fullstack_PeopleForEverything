@@ -16,7 +16,8 @@ router.post('/', async (req,res) => {
         longDescription: advert.longDescription,
         date: advert.date,
         date1: advert.date1,
-        date2: advert.date2
+        date2: advert.date2,
+        creatorId: advert.creatorId
     })
  await newAdvert.save()
  res.send(advert);
