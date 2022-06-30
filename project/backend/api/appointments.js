@@ -17,8 +17,10 @@ router.post('/', (req,res) => {
     if(err){
         console.log(err)
     }else{
-        console.log(userEmail);
+        console.log(creatorId);
         User.findById(creatorId, (err, user) => {
+            console.log("User", user);
+            console.log("App", user.appointments);
             user.appointments.push(result);
             user.save();            
         })
@@ -29,6 +31,8 @@ router.post('/', (req,res) => {
 
 router.get('/:id', (req, res) => {
     const id = req.params['id'];
+   // console.log(id);
+
    User.findById(id).populate('appointments').exec( function (err, appointment) {
     console.log(appointment)
     res.send(appointment);

@@ -11,13 +11,14 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 export default function Post({post}) {
     const {advert} = post;
+    console.log("adv", advert)
    // console.log("Advert", advert?.photo)
   //const userDetails = JSON.parse(localStorage.getItem('userData'));
 //console.log("Post " , )
   return (
     <div>
   
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ width: 250, margin: 2 }}>
       <CardContent>
         <CardMedia
         component="img"

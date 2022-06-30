@@ -36,6 +36,8 @@ export default function BasicModal({date, date1, date2, ad}) {
     const userEmail = email;
     const advert = ad;
     //this.disabled = true;
+    console.log("Creator", advert[0])
+    console.log("id", advert[0].creatorId)
     return axios({
       method: "POST",
       data: {

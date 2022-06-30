@@ -9,7 +9,7 @@ function Appointments() {
     const userDetails = JSON.parse(localStorage.getItem('userData'));
     const id = userDetails._id;
 
-    const [appointments, setAppointments] = useState(null);
+    const [appointments, setAppointments] = useState([]);
 
     useEffect(() => {
         axios({
@@ -17,27 +17,27 @@ function Appointments() {
              withCredentials: true,
              url: `http://localhost:8080/api/appointments/${id}`
         }).then(res => {
-            const appointmentsArray = res.data.appointments[0];
+            const appointmentsArray = res.data.appointments;
+           
             appointmentsArray.map(appointment => {
-            const userEmail = appointment.email;
-            const date = appointment.date;
-            const advert = appointment.advert;
-            // console.log(userEmail);
-            // console.log(date);
-            // console.log(advert);
-            setAppointments({userEmail, date, advert})
+            const userEmail = appointment[0].email;
+            const date = appointment[0].date;
+            const advert = appointment[0].advert;
+            setAppointments(appointments => [...appointments, {userEmail, date, advert}])
            })
      
         });
-        console.log('ppp')
+        //console.log('ppp')
        },[])
         console.log(appointments)
   return (
+    <div>
     <div>
     {(appointments != null) ?
         <div>
         <h1>Appointments</h1>
         <ButtonAppBar/>
+
         <Container sx={{marginTop: 10}}>
         <Grid  container spacing={1}>
             <Grid container direction='column' sm={4} item={true} sx={{ fontWeight: 'bold' }}>
@@ -51,21 +51,27 @@ function Appointments() {
             </Grid>
         </Grid>
         <Divider sx={{margin: 3}}></Divider>
-        <Grid  container spacing={1}>
-        <Grid container direction='column' sm={4} item={true}>
-        <p>{appointments.userEmail}</p>
-        </Grid>
-        <Grid container direction='column' sm={4} item={true}>
-        <p> {appointments.date}</p>
-        </Grid>
-        <Grid container item sm={4}>
-            <Post post={appointments}/>
-        </Grid>
-        </Grid>
+        {
+          appointments.map((appointment, i) => 
+            (
+            <Grid key={i} container spacing={1}>
+              <Grid container direction='column' sm={4} item={true}>
+              <p>{appointment.userEmail}</p>
+              </Grid>
+            <Grid key={i + 1}  container direction='column' sm={4} item={true}>
+            <p> {appointment.date}</p>
+            </Grid>
+              <Post post={appointment}/>
+            </Grid>
+            )
+          )
+        }
+
        </Container>
        </div>
     : null
   }
+   </div>
    </div>
   )
 }
