@@ -30,6 +30,7 @@ router.post('/', (req,res) => {
 router.get('/:id', (req, res) => {
     const id = req.params['id'];
    User.findById(id).populate('appointments').exec( function (err, appointment) {
+    console.log(appointment)
     res.send(appointment);
    })
 })

@@ -52,16 +52,16 @@ async function loginUser(user){
     url: "http://localhost:8080/api/auth/login"
 })
 .then(res =>{
-  const token = res.data.token;
-  localStorage.setItem('auth-token', token);
-  setUserData(res.data.email);
-  localStorage.setItem('userData', JSON.stringify(res.data.userData));
-  const userDetails = JSON.parse(localStorage.getItem('userData'));
-  if(userDetails.role == 'user'){
-     window.location.replace(`http://localhost:3000/userProfile`)
-  }else{
-       window.location.replace(`http://localhost:3000/profile`)
-  } 
+    const token = res.data.token;
+    localStorage.setItem('auth-token', token);
+    setUserData(res.data.email);
+    localStorage.setItem('userData', JSON.stringify(res.data.userData));
+    const userDetails = JSON.parse(localStorage.getItem('userData'));
+    if(userDetails.role == 'user'){
+       window.location.replace(`http://localhost:3000/userProfile`)
+    }else{
+         window.location.replace(`http://localhost:3000/profile`)
+    } 
   })
 }
 

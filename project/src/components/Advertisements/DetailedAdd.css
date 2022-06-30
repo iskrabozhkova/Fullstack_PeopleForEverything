@@ -13,14 +13,13 @@
     margin-left: 20% !important;
     margin-top: 5% ;
 }
-.likes{
+/* .likes{
     background-color: rgb(187, 195, 238);
     width: 15%;
     border-radius: 10px;
     padding: 5px;
     display: inline;
-}
-#like-heading{
+} */
+.like, #like-heading{
     display: inline;
-    margin-right: 5%;
 }

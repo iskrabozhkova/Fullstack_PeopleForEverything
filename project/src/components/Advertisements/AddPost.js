@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, {useState} from 'react'
 import {Avatar, Button , TextField, Grid, Typography, Box, Container} from '@mui/material/'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import ButtonAppBar from '../Menu/AppBar'
+ import ButtonAppBar from '../Menu/AppBar'
 import './AddPost.css'
 import AssignmentIcon from '@mui/icons-material/Assignment'
 import CustomizedSnackbar from '../Snackbar/Snackbar'

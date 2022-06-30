@@ -57,7 +57,12 @@ export default function BasicModal({date, date1, date2, ad}) {
   return (
     <div>
     <Box textAlign='center'>
-      <Button variant='contained' onClick={handleOpen}>Make an appointment</Button>
+      <Button 
+        variant='contained' 
+        onClick={handleOpen} 
+        sx={{marginTop: 5, backgroundColor: "#4F45AC"}}>
+        Make an appointment
+        </Button>
       </Box>
       <Modal
         open={open}
@@ -84,9 +89,27 @@ export default function BasicModal({date, date1, date2, ad}) {
            Choose date: 
           </Typography>
           
-          <Button variant='contained' startIcon={<BookmarkAddedIcon/>} sx={{margin: 1}} onClick={makeAppointment}>{date}</Button>
-          <Button variant='contained' startIcon={<BookmarkAddedIcon/>} sx={{margin: 1}} onClick={makeAppointment}>{date1}</Button>
-          <Button variant='contained' startIcon={<BookmarkAddedIcon/>} sx={{margin: 1}} onClick={makeAppointment}>{date2}</Button>
+          <Button 
+            variant='contained' 
+            startIcon={<BookmarkAddedIcon/>} 
+            sx={{margin: 1}} 
+            onClick={makeAppointment}>
+            {date}
+            </Button>
+          <Button 
+            variant='contained' 
+            startIcon={<BookmarkAddedIcon/>} 
+            sx={{margin: 1}} 
+            onClick={makeAppointment}>
+            {date1}
+            </Button>
+          <Button 
+            variant='contained' 
+            startIcon={<BookmarkAddedIcon/>} 
+            sx={{margin: 1}} 
+            onClick={makeAppointment}>
+            {date2}
+          </Button>
         </Box>
       </Modal>
     </div>

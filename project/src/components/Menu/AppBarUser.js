@@ -43,8 +43,7 @@ const usedStyles = makeStyles({
     
   }
 });
-const userDetails = JSON.parse(localStorage.getItem('userData'));
-const id = userDetails._id;
+
 
 const logout = () => {
   return axios({
@@ -57,13 +56,16 @@ const logout = () => {
     window.location.replace("http://localhost:3000/")
   })
 }
-const navLinks = [
-  { title: "Home", path: "/" },
-  { title: "Advertisements", path: "/addvertisements" },
-  { title: "Favourites", path: `/favs/:${id}`},
-];
 
 const ButtonAppBarUser = () => {
+    const userDetails = JSON.parse(localStorage.getItem('userData'));
+    const id = userDetails._id;
+    const navLinks = [
+        { title: "Home", path: "/" },
+        { title: "Advertisements", path: "/addvertisements" },
+        { title: "Favourites", path: `/favs/:${id}` },
+      ];
+      
   const classes = usedStyles();
   return (
     <>

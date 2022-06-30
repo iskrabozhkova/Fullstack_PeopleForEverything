@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import {Avatar, Button , TextField, MenuItem, Select, FormControl, InputLabel, Link, Grid, Typography, Box, Container} from '@mui/material/'
 import { createTheme, ThemeProvider,styled } from '@mui/material/styles';
 import './Registration.css'
-import ButtonAppBar from '../Menu/AppBar';
 import ButtonAppBarNotRegistered from '../Menu/AppBarNotRegistered';
 import { LoadingButton } from '@mui/lab';
 import { useFormik, Form, FormikProvider } from 'formik';

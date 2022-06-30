@@ -64,17 +64,17 @@ function Comments({ad, id}) {
             {
                 comments.map((c, i) => (
                         <div key={i}>
-                        <Grid container wrap="nowrap" spacing={2}>
-                        <Grid item>
-                          <Avatar alt="Remy Sharp"/>
-                        </Grid>
-                        <Grid justifyContent="left" item xs zeroMinWidth>
-                          <h4 style={{ margin: 0, textAlign: "left" }}>{c.userName}</h4>
-                          <p style={{ textAlign: "left" }}>
-                                {c.commentContent}
-                          </p>
-                        </Grid>
-                      </Grid>
+                            <Grid container wrap="nowrap" spacing={2}>
+                                <Grid item>
+                                    <Avatar alt="Remy Sharp"/>
+                                </Grid>
+                            <Grid justifyContent="left" item xs zeroMinWidth>
+                                <h4 style={{ margin: 0, textAlign: "left" }}>{c.userName}</h4>
+                                <p style={{ textAlign: "left" }}>
+                                    {c.commentContent}
+                                </p>
+                            </Grid>
+                            </Grid>
                       <Divider variant="fullWidth" style={{ margin: "10px 0" }} />
                         </div>
                 ))
@@ -95,9 +95,9 @@ function Comments({ad, id}) {
                 disabled={!comment} 
                 variant="contained" 
                 color="primary" 
-                sx={{marginTop: 2}}
+                sx={{marginTop: 2, backgroundColor: "#4F45AC"}}
                 onClick={handleClick}>
-            Comment
+                Comment
             </Button>
         </Container>
         </ThemeProvider>

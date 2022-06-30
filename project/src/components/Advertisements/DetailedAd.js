@@ -50,9 +50,10 @@ function DetailedAd() {
             <h3>Description</h3>
             <p>{ad[0]?.longDescription}</p>
             <span className="likes">
-              <Button onClick={() => {likePost(id)}}>  <ThumbUpIcon id="like-icon" className="icon"/>Like</Button>
-            </span>
+              <Button onClick={() => {likePost(id)}} variant="contained" sx={{marginRight: 3, backgroundColor: "#4F45AC"}}>  <ThumbUpIcon id="like-icon" className="icon"/>Like</Button>
+            
             <h3 id="like-heading">{likes} like this</h3>
+            </span>
             <BasicModal date={ad[0]?.date} date1={ad[0]?.date1} date2={ad[0]?.date2} ad={ad}/>
             </Grid>
             <Grid container item sm={6}>

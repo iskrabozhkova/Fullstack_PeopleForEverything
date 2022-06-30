@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
 import Registration from "../Registration/Registration"
 import { Container } from '@mui/material';
+
 export default function BackgroundImage() {
   return (
     <div className='bg-image'>
