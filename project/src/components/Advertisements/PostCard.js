@@ -5,30 +5,18 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Navigate } from 'react-router-dom'
-import DetailedAd from './DetailedAd';
 import axios from 'axios';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import './PostCard.css'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 export default function PostCard({post, addToFavs, inFavs, ...rest}) {
+  const [disabled, setDisabled] = React.useState(false);
   const userDetails = JSON.parse(localStorage.getItem('userData'));
-const getDetails = (post) =>{
-//   return axios({
-//     method: "GET",
-//     withCredentials: true,
-//     url: "http://localhost:8080/api/adverts/:id"
-// }).then(res => {
-  //return <Navigate to={`/addvertisements/:${post._id}`}/>
-  window.location.replace(`http://localhost:3000/addvertisements/:${post._id}`)
-}
-//)
-  
-//}
+  const getDetails = (post) =>{
+    window.location.replace(`http://localhost:3000/addvertisements/:${post._id}`)
+  }
 
-  function onAddToFavs() {
-    //addToFavs && addToFavs(post);
+  function onAddToFavs(e) {
     return axios({
       method: "POST",
       data: {
@@ -37,7 +25,10 @@ const getDetails = (post) =>{
       },
       withCredentials: true,
       url: "http://localhost:8080/api/favs"
-  }).then(res => console.log(res))
+    })
+    .then(res => {
+        setDisabled(true);
+    })
   }
   // const likePost = (id) => {
   //   return axios({
@@ -51,30 +42,46 @@ const getDetails = (post) =>{
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardContent>
-      <CardMedia
-      component="img"
-      height="140"
-      image={post.photo}
-    />
-        <Typography gutterBottom variant="h5" component="div">
+        <CardMedia
+        component="img"
+        height="140"
+        image={post.photo}
+        />
+        <Typography 
+          gutterBottom 
+          variant="h5" 
+          component="div">
           Name: {post.firstName}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography 
+          variant="body2" 
+          color="text.secondary">
           Short description: {post.service}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-  
-      </Typography>
+        <Typography 
+          variant="body2" 
+          color="text.secondary">
+        </Typography>
+    </CardContent>
+    <CardActions>
+      <Button 
+        size="small" 
+        variant="contained" 
+        sx={{backgroundColor: '#4F45AC'}}
+        onClick={() => getDetails(post)}>
+        See details
+      </Button>
       
-      </CardContent>
-      <CardActions>
-        <Button size="small" onClick={() => getDetails(post)}>See details</Button>
-      
-          <Button size="small" onClick={onAddToFavs}>
-          Add to favs
-          </Button>
-      
-      </CardActions>
+      <Button 
+        size="small" 
+        variant="contained" 
+        sx={{backgroundColor: '#4F45AC'}} 
+        onClick={onAddToFavs}
+        disabled={disabled}
+        >
+        Add to favs
+      </Button>  
+    </CardActions>
     </Card>
   );
 }

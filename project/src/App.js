@@ -69,6 +69,7 @@ async function loginUser(user){
 function addPost(post){
     createPost(post).then(created => {
       setPosts([...posts, created]);
+      window.location.replace("http://localhost:3000/addvertisements")
     })
   }
 useEffect(() => {

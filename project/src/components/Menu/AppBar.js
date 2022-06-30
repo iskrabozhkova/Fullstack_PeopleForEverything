@@ -55,11 +55,16 @@ const logout = () => {
     window.location.replace("http://localhost:3000/")
   })
 }
+const userDetails = JSON.parse(localStorage.getItem('userData'));
+const id = userDetails._id;
+
 const navLinks = [
   { title: "Home", path: "/" },
   { title: "Add Advertisement", path: "/addvertisement/new" },
-  { title: "Appointments", path: "/appointments" },
+  { title: "Advertisements", path: "/addvertisements" },
+  { title: "Appointments", path: `/appointments/${id}` },
 ];
+
 
 const ButtonAppBar = () => {
   const classes = usedStyles();

@@ -43,6 +43,8 @@ const usedStyles = makeStyles({
     
   }
 });
+const userDetails = JSON.parse(localStorage.getItem('userData'));
+const id = userDetails._id;
 
 const logout = () => {
   return axios({
@@ -58,7 +60,7 @@ const logout = () => {
 const navLinks = [
   { title: "Home", path: "/" },
   { title: "Advertisements", path: "/addvertisements" },
-  { title: "Favourites", path: "/favs" },
+  { title: "Favourites", path: `/favs/:${id}`},
 ];
 
 const ButtonAppBarUser = () => {

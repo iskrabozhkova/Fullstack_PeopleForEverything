@@ -10,6 +10,16 @@ router.get('/:id', (req,res) => {
             res.send(u);
         })
 })
+router.put('/:id', (req,res) => {
+    const id = req.params['id'].substring(1);
+    // console.log(id)
+    // console.log(req.body)
+       console.log(req.body);
+       User.findOneAndUpdate(id, skills, {upsert: true}, function(err, addedSkills) {
+        if (err) return res.send(500, {error: err});
+        return res.send(addedSkills);
+    });
+})
 
 
 module.exports = router;

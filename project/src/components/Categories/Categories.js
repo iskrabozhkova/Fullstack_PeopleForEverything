@@ -1,12 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Button from '@mui/material/Button';
+import React, {useState} from 'react'
 import { Select, MenuItem} from '@mui/material';
-import ButtonAppBar from '../Menu/AppBar';
 
-function Categories({onFilterCategories}) {
+function Categories({onFilterCategories, value, setValue}) {
+
   function handleChange(e){
     onFilterCategories(e.target.value);
+     setValue(e.target.value);
   }
   return (
     <div>
@@ -14,11 +13,12 @@ function Categories({onFilterCategories}) {
     <Select
       labelId="demo-simple-select-label"
       id="demo-simple-select"
-      value="homeworks"
+      value={value}
       label="Choose category"
       onChange={handleChange}
+      sx={{padding: '5px', width: '300px', margin: '30px'}}
     >
-      <MenuItem value="home">Home</MenuItem>
+      <MenuItem selected={true} value="home">Home</MenuItem>
       <MenuItem value="car">Car</MenuItem>
       <MenuItem value="homeworks">Homeworks</MenuItem>
     </Select>
