@@ -24,8 +24,8 @@ const usedStyles = makeStyles({
   navDisplayFlex: {
     display: "flex",
     justifyContent: "space-between",
-    flexDirection: "column"
- 
+    flexDirection: "column",
+
   },
   linkText: {
     textDecoration: "none",
@@ -71,7 +71,7 @@ const ButtonAppBar = () => {
   ];
   const classes = usedStyles();
   return (
-      <AppBar position="static" color="primary" className={classes.nav}>
+      <AppBar position="static" color="primary" className={classes.nav} >
         <Toolbar>
           <Container maxWidth="lg" className={classes.navbarDisplayFlex}>
             <List
