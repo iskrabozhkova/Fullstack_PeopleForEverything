@@ -14,15 +14,9 @@ const db = mongoose.connection;
 db.on('error', (error)=> console.log(error))
 db.on('open', ()=> console.log('Connected to database'))
 const apiRouter = require('./api/index');
-// const path = require('path');
-// const cookieParser = require('cookie-parser');
 
 app.use(express.json());
-// app.use(cookieParser());
 app.use('/api', apiRouter);
-
-
-
 
 app.listen(8080, () => {
     console.log('Server is listening');

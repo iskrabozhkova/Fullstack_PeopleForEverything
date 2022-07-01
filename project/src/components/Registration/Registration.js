@@ -1,38 +1,41 @@
-import React, {useState} from 'react'
-import {Avatar, Button , TextField, MenuItem, Select, FormControl, InputLabel, Link, Grid, Typography, Box, Container} from '@mui/material/'
-import { createTheme, ThemeProvider,styled } from '@mui/material/styles';
-import './Registration.css'
-import ButtonAppBarNotRegistered from '../Menu/AppBarNotRegistered';
-import { LoadingButton } from '@mui/lab';
-import { useFormik, Form, FormikProvider } from 'formik';
-import * as Yup from 'yup';
+import React, { useState } from "react";
+import {
+  Avatar,
+  Button,
+  TextField,
+  MenuItem,
+  Link,
+  Grid,
+  Typography,
+  Box,
+} from "@mui/material/";
+import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
+import "./Registration.css";
+import ButtonAppBarNotRegistered from "../Menu/AppBarNotRegistered";
+import { useFormik, Form, FormikProvider } from "formik";
+import * as Yup from "yup";
 
-
-export default function Registration({onRegister}) {
+export default function Registration({ onRegister }) {
   const theme = createTheme({
     palette: {
       secondary: {
-        main: "#4F45AC"
-      }
+        main: "#4F45AC",
+      },
     },
     typography: {
-      fontFamily: [
-        'Courier New',
-         'Courier', 
-         'monospace'
-      ].join(',')
-  }});
+      fontFamily: ["Courier New", "Courier", "monospace"].join(","),
+    },
+  });
   const UserSchema = Yup.object().shape({
-    id: Yup.string()
-      .max(24, 'Too Long!'),
-    firstName: Yup.string().max(15, 'Too Long'),
-    lastName: Yup.string().max(15, 'Too Long!'),
-    password: Yup.string().min(7, 'Too Short!'),
-    confirmedPassword: Yup.string().min(7, 'Too Short!'),
+    id: Yup.string().max(24, "Too Long!"),
+    firstName: Yup.string().max(15, "Too Long"),
+    lastName: Yup.string().max(15, "Too Long!"),
+    password: Yup.string().min(7, "Too Short!"),
+    confirmedPassword: Yup.string().min(7, "Too Short!"),
     email: Yup.string().email(),
     photo: Yup.string(),
-    role: Yup.string()
-  })
+    role: Yup.string(),
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -42,30 +45,32 @@ export default function Registration({onRegister}) {
       confirmedPassword: "",
       email: "",
       photo: "",
-      role: "user"
+      role: "user",
     },
     validationSchema: UserSchema,
-    onSubmit: ({firstName, lastName, password, email, role, photo}) => {
-      onRegister({firstName, lastName, password, email, role, photo});
-    }
+    onSubmit: ({ firstName, lastName, password, email, role, photo }) => {
+      onRegister({ firstName, lastName, password, email, role, photo });
+    },
   });
-  const roles = [{value: 'user',},{value: 'freelancer',}];
+  const roles = [{ value: "user" }, { value: "freelancer" }];
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
 
   return (
     <div>
       <ThemeProvider theme={theme}>
-      <ButtonAppBarNotRegistered/>
+        <ButtonAppBarNotRegistered />
         <form className="form-container" onSubmit={formik.handleSubmit}>
           <Box
             sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
             }}
           >
-          <Avatar sx={{ mt: 8, mb: 1, bgcolor: 'secondary.main' }}/>
-          <Typography component="h1" variant="h5">Registration</Typography>
+            <Avatar sx={{ mt: 8, mb: 1, bgcolor: "secondary.main" }} />
+            <Typography component="h1" variant="h5">
+              Registration
+            </Typography>
             <Box sx={{ m: 3 }} className="box-register">
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
@@ -78,7 +83,7 @@ export default function Registration({onRegister}) {
                     autoFocus
                     value={formik.values.firstName}
                     onChange={formik.handleChange}
-                    {...getFieldProps('firstName')}
+                    {...getFieldProps("firstName")}
                     error={Boolean(touched.firstName && errors.firstName)}
                     helperText={touched.firstName && errors.firstName}
                   />
@@ -92,7 +97,7 @@ export default function Registration({onRegister}) {
                     name="lastName"
                     value={formik.values.lastName}
                     onChange={formik.handleChange}
-                    {...getFieldProps('lastName')}
+                    {...getFieldProps("lastName")}
                     error={Boolean(touched.lastName && errors.lastName)}
                     helperText={touched.lastName && errors.lastName}
                   />
@@ -106,7 +111,7 @@ export default function Registration({onRegister}) {
                     name="email"
                     value={formik.values.email}
                     onChange={formik.handleChange}
-                    {...getFieldProps('email')}
+                    {...getFieldProps("email")}
                     error={Boolean(touched.email && errors.email)}
                     helperText={touched.email && errors.email}
                   />
@@ -121,64 +126,68 @@ export default function Registration({onRegister}) {
                     id="password"
                     value={formik.values.password}
                     onChange={formik.handleChange}
-                    {...getFieldProps('password')}
+                    {...getFieldProps("password")}
                     error={Boolean(touched.password && errors.password)}
                     helperText={touched.password && errors.password}
                   />
                 </Grid>
                 <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Confirm password"
-                  type="password"
-                  id="password"
-                  value={formik.values.confirmedPassword}
+                  <TextField
+                    required
+                    fullWidth
+                    name="password"
+                    label="Confirm password"
+                    type="password"
+                    id="password"
+                    value={formik.values.confirmedPassword}
                     onChange={formik.handleChange}
-                    {...getFieldProps('confirmedPassword')}
-                    error={Boolean(touched.confirmedPassword && errors.confirmedPassword)}
-                    helperText={touched.confirmedPassword && errors.confirmedPassword}
-                />
-              </Grid>
-              <Grid item xs={12}>
-              <TextField
-                required
-                fullWidth
-                name="photo"
-                label="photo"
-                type="text"
-                id="photo"
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                {...getFieldProps('photo')}
-                error={Boolean(touched.photo && errors.photo)}
-                helperText={touched.photo && errors.photo}
-              />
-            </Grid>
+                    {...getFieldProps("confirmedPassword")}
+                    error={Boolean(
+                      touched.confirmedPassword && errors.confirmedPassword
+                    )}
+                    helperText={
+                      touched.confirmedPassword && errors.confirmedPassword
+                    }
+                  />
+                </Grid>
                 <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="outlined-select-currency"
-                  select
-                  label="Select"
-                  value={formik.values.role}
-                  onChange={formik.handleChange}
-                  {...getFieldProps('role')}
-                  error={Boolean(touched.role && errors.role)}
-                  helperText={touched.role && errors.role}
-                >
-                {roles.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                  {option.value}
-                  </MenuItem>
-                ))}
-        </TextField>
+                  <TextField
+                    required
+                    fullWidth
+                    name="photo"
+                    label="photo"
+                    type="text"
+                    id="photo"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    {...getFieldProps("photo")}
+                    error={Boolean(touched.photo && errors.photo)}
+                    helperText={touched.photo && errors.photo}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="outlined-select-currency"
+                    select
+                    label="Select"
+                    value={formik.values.role}
+                    onChange={formik.handleChange}
+                    {...getFieldProps("role")}
+                    error={Boolean(touched.role && errors.role)}
+                    helperText={touched.role && errors.role}
+                  >
+                    {roles.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.value}
+                      </MenuItem>
+                    ))}
+                  </TextField>
                 </Grid>
               </Grid>
-              <Button 
-              color="secondary"
+              <Button
+                color="secondary"
                 type="submit"
                 fullWidth
                 variant="contained"
@@ -198,5 +207,5 @@ export default function Registration({onRegister}) {
         </form>
       </ThemeProvider>
     </div>
-  )
+  );
 }
