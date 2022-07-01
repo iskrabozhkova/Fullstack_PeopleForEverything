@@ -64,13 +64,13 @@ const ButtonAppBar = () => {
 
   const navLinks = [
     { title: "Home", path: "/" },
+    { title: "Profile", path: `/profile` },
     { title: "Add Advertisement", path: "/addvertisement/new" },
     { title: "Advertisements", path: "/addvertisements" },
     { title: "Appointments", path: `/appointments/${id}` },
   ];
   const classes = usedStyles();
   return (
-    <>
       <AppBar position="static" color="primary" className={classes.nav}>
         <Toolbar>
           <Container maxWidth="lg" className={classes.navbarDisplayFlex}>
@@ -91,7 +91,6 @@ const ButtonAppBar = () => {
           </Container>
         </Toolbar>
       </AppBar>
-    </>
   );
 };
 

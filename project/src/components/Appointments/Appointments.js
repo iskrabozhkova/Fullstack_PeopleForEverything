@@ -87,7 +87,7 @@ function Appointments() {
                     <p> {appointment.date}</p>
                   </Grid>
                   <Post post={appointment} />
-                </Grid>
+                </Grid> 
               ))}
             </Container>
           </div>

@@ -8,6 +8,7 @@ import {
   Typography,
   Box,
   Container,
+  MenuItem
 } from "@mui/material/";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ButtonAppBar from "../Menu/AppBar";
@@ -39,6 +40,8 @@ function AddPost({ onAddPost }) {
       fontFamily: ["Courier New", "Courier", "monospace"].join(","),
     },
   });
+  const categories = [{ value: "car" }, { value: "home" }, {value: "homeworks"}];
+
   function submitPost(event) {
     event.preventDefault();
     onAddPost({
@@ -101,16 +104,23 @@ function AddPost({ onAddPost }) {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField
-                    required
-                    fullWidth
-                    id="category"
-                    label="category"
-                    name="category"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                  />
-                </Grid>
+                <TextField
+                  required
+                  fullWidth
+                  id="outlined-select-currency"
+                  select
+                  label="Choose category"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                >
+                  {categories.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.value}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </Grid>
+
                 <Grid item xs={12}>
                   <TextField
                     required

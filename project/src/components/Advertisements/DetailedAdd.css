@@ -13,13 +13,9 @@
     margin-left: 20% !important;
     margin-top: 5% ;
 }
-/* .likes{
-    background-color: rgb(187, 195, 238);
-    width: 15%;
-    border-radius: 10px;
-    padding: 5px;
-    display: inline;
-} */
 .like, #like-heading{
     display: inline;
+}
+#header-ad{
+    text-align: center;
 }

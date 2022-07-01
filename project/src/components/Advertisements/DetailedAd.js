@@ -7,11 +7,13 @@ import BasicModal from "./BasicModal";
 import Comments from "../Comments/Comments";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ButtonAppBarUser from "../Menu/AppBarUser";
+import ButtonAppBar from '../Menu/AppBar'
 
 function DetailedAd() {
   const { id } = useParams();
   const [ad, setAd] = useState([]);
   const [likes, setLikes] = useState("");
+  const userDetails = JSON.parse(localStorage.getItem("userData"));
 
   useEffect(() => {
     axios({
@@ -37,18 +39,20 @@ function DetailedAd() {
 
   return (
     <div>
-      <ButtonAppBarUser></ButtonAppBarUser>
+      {userDetails.role === 'user' ? <ButtonAppBarUser/> : <ButtonAppBar/>}
       <h1>Details about advertisement</h1>
       <Container className="container">
         <Grid container spacing={1}>
           <Grid container direction="column" sm={6} item={true}>
-            <h3>Username</h3>
+          <Container sx={{ padding: '20px', backgroundColor: '#d6dbf5;', borderRadius: 10}}>
+            <h3 id="header-ad">Advertisement</h3>
+            <h4>Username</h4>
             <p>
               {ad[0]?.firstName} {ad[0]?.lastName}
             </p>
-            <h3>Category</h3>
+            <h4>Category</h4>
             <p>{ad[0]?.category}</p>
-            <h3>Description</h3>
+            <h4>Description</h4>
             <p>{ad[0]?.longDescription}</p>
             <span className="likes">
               <Button
@@ -64,6 +68,7 @@ function DetailedAd() {
 
               <h3 id="like-heading">{likes} like this</h3>
             </span>
+            </Container>
             <BasicModal
               date={ad[0]?.date}
               date1={ad[0]?.date1}

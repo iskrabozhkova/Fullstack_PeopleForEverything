@@ -62,6 +62,7 @@ const ButtonAppBarUser = () => {
     const id = userDetails._id;
     const navLinks = [
         { title: "Home", path: "/" },
+        { title: "Profile", path: "/userProfile" },
         { title: "Advertisements", path: "/addvertisements" },
         { title: "Favourites", path: `/favs/:${id}` },
       ];

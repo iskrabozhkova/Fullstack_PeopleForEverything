@@ -14,6 +14,7 @@ import Posts from "./components/Advertisements/Posts";
 import Favourites from "./components/Advertisements/Favourites";
 import Appointments from "./components/Appointments/Appointments";
 import UserProfile from "./components/Profile/UserProfile";
+import About from "./components/About/About";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -91,6 +92,7 @@ function App() {
           <Route path="/userProfile" element={<UserProfile />} />
           <Route path="/favs/:id" element={<Favourites />} />
           <Route path="/appointments/:id" element={<Appointments />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Router>
     </div>

@@ -3,69 +3,49 @@ import { useParams } from "react-router-dom";
 import PropTypes from 'prop-types'
 import axios from "axios"
 import BasicModal from '../Advertisements/BasicModal';
-import ButtonAppBar from '../Menu/AppBar';
+import ButtonAppBarUser from '../Menu/AppBarUser';
 import {
-    Paper, Grid, Avatar, Button, Container, TextField
+    Paper, Grid, Avatar, Button, Container, TextField, Divider
   } from "@mui/material";
 
-function Profile() {
+
+function UserProfile() {
     const userDetails = JSON.parse(localStorage.getItem('userData'));
     const id = userDetails._id;
-    const [skills, setSkills] = useState([]);
+    const [info, setInfo] = useState([]);
 
     const updateInfo = () => {
-       // console.log(skills)
         return axios({
             method: "PUT",
-            data: skills,
             withCredentials: true,
-            url: `http://localhost:8080/api/users/:${id}`
-        }).then(res => console.log(res))
+            url: `http://localhost:8080/api/users/:{id}`
+        })
     }
   return (
     <div>
-    <ButtonAppBar/>
-      <h1>Profile</h1>
-      <Paper style={{ padding: "40px 20px", margin: "0 5% 0 20%"  }}>
+        <ButtonAppBarUser/>
+        <h1>My profile</h1>
+        <Paper style={{ padding: "40px 20px", margin: "5% auto", border: '4px solid #4F45AC', width: '50%'}}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
-            <Avatar alt="Remy Sharp"  />
+            <Avatar alt="Remy Sharp"  src={userDetails.photo}  sx={{ width: 300, height: 300 }}/>
           </Grid>
+         
           <Grid justifyContent="left" item xs zeroMinWidth>
-            <h4 style={{ margin: 0, textAlign: "left" }}>{userDetails.firstName} {userDetails.lastName}</h4>
-            <p style={{ textAlign: "left" }}>
-                My email is: {userDetails.email}
+            <h4 style={{ margin: '10% 10% 0 10%', textAlign: "left" }}>{userDetails.firstName} {userDetails.lastName}</h4>
+            <p style={{ textAlign: "left", marginLeft: '10%'}}>
+              Email: {userDetails.email}
             </p>
             <Container>
-            <TextField
-                fullWidth
-                rows={4}
-                variant="outlined"
-                label="Add info"
-                multiline
-                value={skills}
-                onChange={e => setSkills(skills => [...skills, e.target.value])}
-            ></TextField>
-            <Button 
-                fullWidth 
-                disabled={!skills} 
-                variant="contained" 
-                color="primary" 
-                sx={{marginTop: 2}}
-                onClick={updateInfo}>
-                Add skill
-            </Button>
+           
         </Container>
           </Grid>
         </Grid>
         </Paper>
-    <h1>{userDetails.firstName}</h1>
-    <h1>{userDetails.lastName}</h1>
-    <h1>{userDetails.email}</h1>
     </div>
   )
 }
 
-Profile.propTypes = {}
+UserProfile.propTypes = {}
 
-export default Profile
+export default UserProfile
