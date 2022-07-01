@@ -8,7 +8,8 @@ const FavSchema = new mongoose.Schema({
     service: {type: String, required: true},
     price: {type: Number},
     date: {date: Date},
-    userId: {type: mongoose.Types.ObjectId, ref: 'Users'}
+    userId: {type: mongoose.Types.ObjectId, ref: 'Users'},
+    photo: {type: String}
 },
 { collation: { locale: 'en_US', strength: 1 }} )
 

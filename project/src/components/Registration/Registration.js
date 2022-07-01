@@ -46,7 +46,7 @@ export default function Registration({onRegister}) {
     },
     validationSchema: UserSchema,
     onSubmit: ({firstName, lastName, password, email, role, photo}) => {
-      onRegister({firstName, lastName, password, email, role});
+      onRegister({firstName, lastName, password, email, role, photo});
     }
   });
   const roles = [{value: 'user',},{value: 'freelancer',}];

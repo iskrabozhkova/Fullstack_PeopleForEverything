@@ -13,7 +13,8 @@ const User = require('../model/user');
          service: post.service,
          price: post.price,
          date: post.date,
-         userId: userId
+         userId: userId,
+         photo: post.photo
      })
      newFavs.save((err, result) => {
         if(err){

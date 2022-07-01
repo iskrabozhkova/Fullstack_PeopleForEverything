@@ -11,7 +11,9 @@ import {Grid} from '@mui/material';
 
 
 export default function FavCard({post}) {
+  console.log(post)
   return (
+  
     <Grid container spacing={12} >
       <Grid item xs={10} ml={20} mt={20}>
       <Grid container spacing={12} columnGap={5} rowGap={5}></Grid>

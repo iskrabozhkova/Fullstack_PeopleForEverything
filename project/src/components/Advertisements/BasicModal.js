@@ -49,8 +49,7 @@ export default function BasicModal({date, date1, date2, ad}) {
       withCredentials: true,
       url: "http://localhost:8080/api/appointments"
   }).then(res => {
-    //e.currentTarget.disabled = true;
-    console.log(res);
+    window.location.replace("http://localhost:3000/addvertisements")
   })
 
     
