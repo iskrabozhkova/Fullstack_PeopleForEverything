@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Advert = require("../model/advert");
-const mongoose = require("mongoose");
 const Comment = require("../model/comment");
 
 router.post("/", (req, res) => {

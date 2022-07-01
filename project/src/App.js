@@ -28,13 +28,16 @@ function App() {
       withCredentials: true,
       url: "http://localhost:8080/api/auth/register",
     }).then((res) => {
-      console.log(res);
-      console.log(res.config.data);
+      if (res.data.status === "error") {
+        alert(`${res.data.error}`);
+      } 
+      else {
       const created = res.config.data;
       setUsers((oldUsers) => [...oldUsers, created]);
       if (res.status === 201) {
         window.location.replace("http://localhost:3000/login");
       }
+    }
     });
   }
   async function loginUser(user) {

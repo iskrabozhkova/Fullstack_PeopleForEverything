@@ -16,10 +16,10 @@ export default function FavCard({ post }) {
           <CardContent>
             <CardMedia component="img" height="140" image={post.photo} />
             <Typography gutterBottom variant="h5" component="div">
-              Name: {post.firstName}
+              {post.firstName}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Short description: {post.service}
+              {post.service}
             </Typography>
             <Typography variant="body2" color="text.secondary"></Typography>
           </CardContent>
