@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "62bb764662684b325c6b17a7"
+  },
+  "userName": "Marinela",
+  "comment": "Good point",
+  "adId": {
+    "$oid": "62ba0df899177ed8c5674b61"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62bc5e01fe49127cfc816b3e"
+  },
+  "userName": "Teo",
+  "comment": "Awesome! I will try it!",
+  "adId": {
+    "$oid": "62b890dd60ff24be684283d0"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62befaf83d1361aeeb036382"
+  },
+  "userName": "Peter",
+  "comment": "Sounds good! ",
+  "adId": {
+    "$oid": "62be08d5c549c9b93910be89"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,119 @@
+[{
+  "_id": {
+    "$oid": "62bbf3a054af898d9fb4e6a9"
+  },
+  "firstName": "Ivailo",
+  "lastName": "Ivanov",
+  "category": "car ",
+  "service": "car repair",
+  "longDescription": "Discuss vehicle problems with customers and recommend possible solutions with a detailed breakdown of the steps and costs of parts and labor.",
+  "likes": [],
+  "price": 40,
+  "photo": "https://cdn.pixabay.com/photo/2018/09/20/22/23/auto-repair-3691962_960_720.jpg",
+  "date": "2022-06-23T09:39",
+  "date1": "2022-06-23T09:39",
+  "date2": "2022-06-16T09:39",
+  "comments": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62bbf41554af898d9fb4e6ac"
+  },
+  "firstName": "Kalin",
+  "lastName": "Kalinov",
+  "category": "car",
+  "service": "car repair",
+  "longDescription": "Discuss vehicle problems with customers and recommend possible solutions with a detailed breakdown of the steps and costs of parts and labor.",
+  "likes": [],
+  "price": 15,
+  "photo": "https://cdn.pixabay.com/photo/2018/09/20/22/23/auto-repair-3691962_960_720.jpg",
+  "date": "2022-06-23T09:41",
+  "date1": "2022-06-25T09:41",
+  "date2": "2022-06-17T09:41",
+  "comments": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62beb62e5d8992770afde2c0"
+  },
+  "firstName": "Simeon",
+  "lastName": "Simeonov",
+  "category": "car",
+  "service": "changing wheels",
+  "longDescription": "Responsible for working in a repair shop and using the latest equipment to repair and service cars, vans, motorbikes, lorries and coaches. Also I change car wheels.",
+  "likes": [],
+  "price": 20,
+  "photo": "https://cdn.pixabay.com/photo/2017/06/18/19/54/alloy-wheel-2417026_960_720.jpg",
+  "date": "2022-07-13T11:53",
+  "date1": "2022-07-24T11:54",
+  "date2": "2022-07-23T11:53",
+  "comments": [],
+  "creatorId": {
+    "$oid": "62beb4b55d8992770afde2b8"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62befb933d1361aeeb03638b"
+  },
+  "firstName": "Peter",
+  "lastName": "Stoyanov",
+  "category": "homeworks",
+  "service": "math",
+  "longDescription": "I am a recent graduate in Math Education with a passion to teach math to all students, no matter their age or level. I have tutored kids as young as six years old and I have also taught college students. When I am not teaching or tutoring, I enjoy exploring new restaurants in the area and reading a good book.",
+  "likes": [],
+  "price": 20,
+  "photo": "https://cdn.pixabay.com/photo/2016/09/04/18/02/blackboard-1644744_960_720.png",
+  "date": "2022-07-14T16:50",
+  "date1": "2022-07-20T16:50",
+  "date2": "2022-07-23T16:50",
+  "comments": [],
+  "creatorId": {
+    "$oid": "62bef6f0a03bde00dcc8ed53"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62befe69ac9557b343a0a0d7"
+  },
+  "firstName": "Simeon",
+  "lastName": "Simeonov",
+  "category": "home",
+  "service": "garden ",
+  "longDescription": "A competent, physically fit and hardworking gardener who has a track record of creating and maintaining gardens, lawns and parks that are tidy, environmentally friendly and safe. Possessing comprehensive knowledge of botany and horticulture, as well as the various planting seasons for trees, vegetables and flowers.",
+  "likes": [
+    {
+      "$oid": "62befe69ac9557b343a0a0d7"
+    }
+  ],
+  "price": 50,
+  "photo": "https://cdn.pixabay.com/photo/2014/07/05/08/30/lawn-mower-384589_960_720.jpg",
+  "date": "2022-07-13T17:02",
+  "date1": "2022-07-12T17:02",
+  "date2": "2022-07-05T17:02",
+  "comments": [],
+  "creatorId": {
+    "$oid": "62beb4b55d8992770afde2b8"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62beff47ac9557b343a0a0e3"
+  },
+  "firstName": "Peter",
+  "lastName": "Stoyanov",
+  "category": "home",
+  "service": "cleaning",
+  "longDescription": " An exceptional high level of attention to detail when it comes to domestic cleanliness and tidiness. · Excellent cleaning and laundry skills.",
+  "likes": [],
+  "price": 30,
+  "photo": "https://cdn.pixabay.com/photo/2020/04/26/04/38/disinfectant-5093503_960_720.jpg",
+  "date": "2022-07-13T17:05",
+  "date1": "2022-07-16T21:05",
+  "date2": "2022-07-13T17:05",
+  "comments": [],
+  "creatorId": {
+    "$oid": "62bef6f0a03bde00dcc8ed53"
+  },
+  "__v": 0
+}]

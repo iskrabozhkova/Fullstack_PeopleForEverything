@@ -1,0 +1,99 @@
+[{
+  "_id": {
+    "$oid": "62bcae1221fd1a6314ef5adc"
+  },
+  "email": "kalin@abv.bg",
+  "date": "2022-06-23T22:12",
+  "advert": {
+    "_id": "62bca435996d2456a0a4c0ad",
+    "firstName": "Ivanina",
+    "lastName": "Ivaninova",
+    "category": "home",
+    "service": "cooking",
+    "longDescription": "A highly motivated and capable professional cook with a real passion for preparing popular, healthy and nutritious meals. Having a ‘hands on’ approach to all areas of the kitchen and possessing excellent organisational skills and administrative skills. A quick learner who can effortlessly fit into a existing established environment, and also encourage junior staff  to achieve their best when preparing meals.",
+    "likes": [],
+    "price": 50,
+    "photo": "https://cdn.pixabay.com/photo/2013/07/13/10/25/woman-157177_960_720.png",
+    "date": "2022-06-23T22:12",
+    "date1": "2022-06-26T22:12",
+    "date2": "2022-06-29T09:12",
+    "comments": [],
+    "creatorId": "62bc22afaa07223f70b6946b",
+    "__v": 0
+  },
+  "users": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62befc663d1361aeeb0363a6"
+  },
+  "email": "milena@abv.bg",
+  "date": "2022-07-01T22:02",
+  "advert": {
+    "_id": "62bca1c2980d89b6be13ca2e",
+    "firstName": "Ivanina",
+    "lastName": "Ivaninova",
+    "category": "home",
+    "service": "cleaning rooms",
+    "longDescription": "Vacuuming, sweeping, and mopping floors of various types. Dusting ceilings, light fittings, countertops, and loose furniture. Scrubbing and sanitizing toilets, sinks, and kitchen fixtures.Emptying trash cans. Washing and drying windows.",
+    "likes": [],
+    "price": 50,
+    "photo": "https://cdn.pixabay.com/photo/2014/04/02/10/15/bucket-303265_960_720.png",
+    "date": "2022-07-01T22:02",
+    "date1": "2022-06-07T22:02",
+    "date2": "2022-06-24T22:02",
+    "comments": [],
+    "__v": 0
+  },
+  "users": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62befce22e3ca019b53a2237"
+  },
+  "email": "milena@abv.bg",
+  "date": "2022-07-14T16:50",
+  "advert": {
+    "_id": "62befb933d1361aeeb03638b",
+    "firstName": "Peter",
+    "lastName": "Stoyanov",
+    "category": "homeworks",
+    "service": "math",
+    "longDescription": "I am a recent graduate in Math Education with a passion to teach math to all students, no matter their age or level. I have tutored kids as young as six years old and I have also taught college students. When I am not teaching or tutoring, I enjoy exploring new restaurants in the area and reading a good book.",
+    "likes": [],
+    "price": 20,
+    "photo": "https://cdn.pixabay.com/photo/2016/09/04/18/02/blackboard-1644744_960_720.png",
+    "date": "2022-07-14T16:50",
+    "date1": "2022-07-20T16:50",
+    "date2": "2022-07-23T16:50",
+    "comments": [],
+    "creatorId": "62bef6f0a03bde00dcc8ed53",
+    "__v": 0
+  },
+  "users": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62befd1c2e3ca019b53a223f"
+  },
+  "email": "milena@abv.bg",
+  "date": "2022-07-01T22:02",
+  "advert": {
+    "_id": "62bca1c2980d89b6be13ca2e",
+    "firstName": "Ivanina",
+    "lastName": "Ivaninova",
+    "category": "home",
+    "service": "cleaning rooms",
+    "longDescription": "Vacuuming, sweeping, and mopping floors of various types. Dusting ceilings, light fittings, countertops, and loose furniture. Scrubbing and sanitizing toilets, sinks, and kitchen fixtures.Emptying trash cans. Washing and drying windows.",
+    "likes": [],
+    "price": 50,
+    "photo": "https://cdn.pixabay.com/photo/2014/04/02/10/15/bucket-303265_960_720.png",
+    "date": "2022-07-01T22:02",
+    "date1": "2022-06-07T22:02",
+    "date2": "2022-06-24T22:02",
+    "comments": [],
+    "__v": 0
+  },
+  "users": [],
+  "__v": 0
+}]

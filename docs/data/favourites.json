@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "62beb6a35d8992770afde2c4"
+  },
+  "firstName": "Kalin",
+  "lastName": "Kalinov",
+  "category": "car",
+  "service": "car repair",
+  "price": 15,
+  "userId": {
+    "$oid": "62beb4b55d8992770afde2b8"
+  },
+  "photo": "https://cdn.pixabay.com/photo/2018/09/20/22/23/auto-repair-3691962_960_720.jpg",
+  "__v": 0
+}]

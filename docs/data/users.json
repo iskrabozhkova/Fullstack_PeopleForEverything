@@ -1,0 +1,125 @@
+[{
+  "_id": {
+    "$oid": "62bc7480fe49127cfc816b68"
+  },
+  "firstName": "Kalin",
+  "lastName": "Petrov",
+  "password": "$2b$10$FZz7lscHi3I6OJiNkeRCIeH2Xoah3dX8bdVLr/USPn0BBchhXvxKa",
+  "email": "kalin@abv.bg",
+  "role": "user",
+  "appointments": [
+    [
+      {
+        "email": "kalin@abv.bg",
+        "date": "2022-07-01T22:02",
+        "advert": {
+          "_id": "62bca1c2980d89b6be13ca2e",
+          "firstName": "Ivanina",
+          "lastName": "Ivaninova",
+          "category": "home",
+          "service": "cleaning rooms",
+          "longDescription": "Vacuuming, sweeping, and mopping floors of various types. Dusting ceilings, light fittings, countertops, and loose furniture. Scrubbing and sanitizing toilets, sinks, and kitchen fixtures.Emptying trash cans. Washing and drying windows.",
+          "likes": [],
+          "price": 50,
+          "photo": "https://cdn.pixabay.com/photo/2014/04/02/10/15/bucket-303265_960_720.png",
+          "date": "2022-07-01T22:02",
+          "date1": "2022-06-07T22:02",
+          "date2": "2022-06-24T22:02",
+          "comments": [],
+          "__v": 0
+        },
+        "_id": {
+          "$oid": "62bca23d980d89b6be13ca37"
+        },
+        "__v": 0
+      }
+    ]
+  ],
+  "__v": 1,
+  "favourites": []
+},{
+  "_id": {
+    "$oid": "62be8ac9c549c9b93910bef8"
+  },
+  "firstName": "Milena",
+  "lastName": "Todorova",
+  "password": "$2b$10$0v6Si1l44wbLfLhvsu3IeeWzoZtwyJ9NWAZTMn/tpBo6JmvaswwG.",
+  "email": "milena@abv.bg",
+  "role": "user",
+  "photo": "https://cdn.pixabay.com/photo/2015/03/03/18/58/woman-657753_960_720.jpg",
+  "appointments": [],
+  "favourites": [
+    {
+      "$oid": "62be93a6c549c9b93910bf0d"
+    },
+    {
+      "$oid": "62be94ccc549c9b93910bf19"
+    },
+    {
+      "$oid": "62be94fb5d8992770afde2a7"
+    },
+    {
+      "$oid": "62befc013d1361aeeb03639a"
+    }
+  ],
+  "__v": 4
+},{
+  "_id": {
+    "$oid": "62beb4b55d8992770afde2b8"
+  },
+  "firstName": "Simeon",
+  "lastName": "Simeonov",
+  "password": "$2b$10$kfRQmVVsyoZy66lkH56Z/.TokIIObxmUvFepXzGOGByB299sks8ES",
+  "email": "simeon@abv.bg",
+  "role": "freelancer",
+  "photo": "https://cdn.pixabay.com/photo/2015/01/12/10/45/man-597178_960_720.jpg",
+  "appointments": [],
+  "favourites": [
+    {
+      "$oid": "62beb6a35d8992770afde2c4"
+    }
+  ],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "62bef6f0a03bde00dcc8ed53"
+  },
+  "firstName": "Peter",
+  "lastName": "Stoqnov",
+  "password": "$2b$10$xLgwdDkCGrjeeMaxXY7ubuBCmZ0UdSreQrva83obnoR7ylP7YmPUO",
+  "email": "peter@abv.bg",
+  "role": "freelancer",
+  "photo": "https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445_960_720.jpg",
+  "appointments": [
+    [
+      {
+        "email": "milena@abv.bg",
+        "date": "2022-07-14T16:50",
+        "advert": {
+          "_id": "62befb933d1361aeeb03638b",
+          "firstName": "Peter",
+          "lastName": "Stoyanov",
+          "category": "homeworks",
+          "service": "math",
+          "longDescription": "I am a recent graduate in Math Education with a passion to teach math to all students, no matter their age or level. I have tutored kids as young as six years old and I have also taught college students. When I am not teaching or tutoring, I enjoy exploring new restaurants in the area and reading a good book.",
+          "likes": [],
+          "price": 20,
+          "photo": "https://cdn.pixabay.com/photo/2016/09/04/18/02/blackboard-1644744_960_720.png",
+          "date": "2022-07-14T16:50",
+          "date1": "2022-07-20T16:50",
+          "date2": "2022-07-23T16:50",
+          "comments": [],
+          "creatorId": "62bef6f0a03bde00dcc8ed53",
+          "__v": 0
+        },
+        "users": [],
+        "_id": {
+          "$oid": "62befce22e3ca019b53a2237"
+        },
+        "__v": 0
+      }
+    ]
+  ],
+  "favourites": [],
+  "__v": 1
+}]
